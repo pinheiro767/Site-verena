@@ -215,7 +215,16 @@
     </div>
    </header><!-- Interactive Cards -->
    <main class="relative z-10 px-6 pb-16">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-5xl mx-auto"><!-- Experimental Disclaimer on Main Page -->
+     <div class="max-w-4xl mx-auto px-6 mb-8">
+      <div class="bg-slate-100 border-2 border-dashed border-slate-300 p-6 rounded-2xl">
+       <div class="flex items-center gap-3 mb-2 text-slate-600"><span class="text-xl">🔬</span>
+        <h4 class="font-bold uppercase tracking-widest text-xs">Projeto Experimental em Saúde</h4>
+       </div>
+       <p class="text-sm text-slate-600 leading-relaxed">A <strong>Verena</strong> é uma assistente virtual em fase de desenvolvimento e testes. Este sistema integra projetos de <strong>Iniciação Científica</strong> vinculados a instituições de ensino superior e está em constante aprimoramento.</p>
+       <p class="mt-3 text-sm text-slate-600 italic"><strong>Importante:</strong> As interações nesta plataforma são monitoradas por pesquisadores da área da saúde para fins acadêmicos. Esta IA não substitui a consulta médica ou o aconselhamento profissional especializado.</p>
+      </div>
+     </div>
      <div class="mb-8 text-center">
       <p class="text-white/90 text-lg font-medium">👇 Clique nos cards para expandir e ver mais detalhes</p>
      </div>
@@ -260,7 +269,7 @@
            <p class="text-sm leading-relaxed" style="color: #475569;"><strong>Consentimento Informado:</strong><br>
              O médico deve explicar diagnóstico, prognóstico, riscos e benefícios de forma clara, sem jargões médicos complexos. O idoso tem o direito de aceitar ou recusar tratamentos.</p>
            <div class="bg-cyan-50 p-4 rounded-xl border-l-4 border-cyan-500">
-            <p class="text-sm font-semibold" style="color: #0e7490;">⚖️ O idoso NÃO perde sua capacidade legal apenas pela idade. A autonomia deve ser respeitada enquanto houver discernimento.</p>
+            <p class="text-sm font-semibold" style="color: #0e7490;"> O idoso NÃO perde sua capacidade legal apenas pela idade. A autonomia deve ser respeitada enquanto houver discernimento.</p>
            </div><span class="badge" style="background: rgba(8, 145, 178, 0.15); color: #0891b2;"> ⚕️ Código de Ética Médica (Art. 31) </span>
           </div>
          </div>
@@ -269,7 +278,7 @@
       </article><!-- Card 3: Acompanhante -->
       <article class="card-interactive fade-in stagger-3 rounded-3xl p-6 shadow-xl" onclick="toggleCard(this)">
        <div class="flex items-start gap-4">
-        <div class="icon-wrapper" style="background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);"><span>🤝</span>
+        <div class="icon-wrapper" style="background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);"><span>👥</span>
         </div>
         <div class="flex-1">
          <div class="flex items-start justify-between mb-3">
@@ -283,7 +292,7 @@
            <p class="text-sm leading-relaxed" style="color: #475569;"><strong>O que diz a lei:</strong><br>
              A unidade de saúde é <strong>obrigada</strong> a viabilizar estrutura para que um acompanhante permaneça 24 horas junto ao idoso internado, seja em hospital público ou privado.</p>
            <ul class="text-sm space-y-2" style="color: #475569;">
-            <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>Vale para UTI, enfermaria e observação</span></li>
+            <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">🏥</span> <span>Vale para UTI, enfermaria e observação</span></li>
             <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>O hospital não pode cobrar pelo acompanhante</span></li>
             <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>Deve fornecer alimentação e estrutura mínima</span></li>
            </ul><span class="badge" style="background: rgba(79, 70, 229, 0.15); color: #4f46e5;"> 📋 Art. 16 do Estatuto do Idoso </span>
@@ -375,11 +384,11 @@
       <article class="card-interactive fade-in stagger-6 rounded-3xl p-6 shadow-xl md:col-span-2 alert-box" onclick="toggleCard(this)">
        <div class="relative z-10">
         <div class="flex items-start gap-4">
-         <div class="icon-wrapper flex-shrink-0" style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);"><span>📢</span>
+         <div class="icon-wrapper flex-shrink-0" style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);"><span>��</span>
          </div>
          <div class="flex-1">
           <div class="flex items-start justify-between mb-3">
-           <h3 class="font-heading text-2xl md:text-3xl font-bold" style="color: #92400e;">Como Denunciar Violações</h3>
+           <h3 class="font-heading text-2xl md:text-3xl font-bold" style="color: #92400e;">Como Denunciar Violacoes</h3>
            <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
            </svg>
           </div>
@@ -418,7 +427,38 @@
         </div>
        </div>
       </article>
-     </div>
+     </div><!-- Scientific Evidence Section -->
+     <section class="mt-12 space-y-6 px-4 fade-in" style="animation-delay: 0.7s;">
+      <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-2xl shadow-lg">
+       <h3 class="font-heading text-2xl text-blue-900 flex items-center gap-3 mb-4"><span class="text-3xl">🇧🇷</span> <span>Diretrizes do Ministério da Saúde</span></h3>
+       <ul class="text-base text-blue-800 space-y-3 leading-relaxed">
+        <li class="flex items-start gap-3"><span class="text-xl flex-shrink-0">🚶</span>
+         <div><strong>Prevenção de Quedas:</strong> Manter ambientes iluminados, remover tapetes soltos e instalar corrimãos. Quedas são a principal causa de perda de autonomia.
+         </div></li>
+        <li class="flex items-start gap-3"><span class="text-xl flex-shrink-0">💊</span>
+         <div><strong>Polifarmácia:</strong> Revisão periódica da lista de medicamentos com a equipe de saúde para evitar interações perigosas.
+         </div></li>
+        <li class="flex items-start gap-3"><span class="text-xl flex-shrink-0">💉</span>
+         <div><strong>Imunização:</strong> Manutenção rigorosa do calendário vacinal (Gripe, Pneumonia, Tétano) como barreira de saúde pública.
+         </div></li>
+       </ul>
+      </div>
+      <div class="bg-purple-50 border-l-4 border-purple-600 p-6 rounded-r-2xl shadow-lg">
+       <h3 class="font-heading text-2xl text-purple-900 flex items-center gap-3 mb-4"><span class="text-3xl">🔬</span> <span>Evidências PubMed (Últimos 5 Anos)</span></h3>
+       <div class="text-base text-purple-800 space-y-4 leading-relaxed">
+        <div>
+         <p class="font-semibold mb-2 flex items-start gap-2"><span>📊</span> <span>Impacto do Meio Social:</span></p>
+         <p class="ml-7">Estudos recentes (2022-2024) demonstram que idosos com <strong>fortes laços de vizinhança</strong> e confiança comunitária apresentam menores níveis de ansiedade e maior "Bem-Estar Subjetivo" (SWB).</p>
+        </div>
+        <div>
+         <p class="font-semibold mb-2 flex items-start gap-2"><span>👨‍👩‍👧‍👦</span> <span>O Papel da Familia:</span></p>
+         <p class="ml-7">Pesquisas indicam que a coabitacao familiar correlaciona-se positivamente com a saude autorreferida e felicidade, desde que a autonomia do idoso seja preservada. O isolamento social e hoje classificado como um fator de risco tao grave quanto o tabagismo.</p>
+        </div>
+        <div class="pt-3 flex flex-wrap gap-2 ml-7"><span class="text-xs bg-purple-200 px-3 py-1 rounded-full font-mono font-semibold">PMID: 36629110</span> <span class="text-xs bg-purple-200 px-3 py-1 rounded-full font-mono font-semibold">PMID: 34277332</span>
+        </div>
+       </div>
+      </div>
+     </section>
     </div>
    </main><!-- Footer -->
    <footer class="relative z-10 text-center py-12 px-6 mt-12 bg-black/20 backdrop-blur-md border-t border-white/10">
@@ -437,6 +477,13 @@
        </div>
        <h2 class="font-heading text-3xl font-bold mb-2" style="color: #6d28d9;">Conheça a Verena</h2>
        <p class="text-lg" style="color: #475569;">Sua assistente virtual para direitos do idoso</p>
+      </div><!-- Experimental Disclaimer -->
+      <div class="bg-slate-100 border-2 border-dashed border-slate-300 p-6 rounded-2xl mb-6">
+       <div class="flex items-center gap-3 mb-3 text-slate-600"><span class="text-2xl">🔬</span>
+        <h4 class="font-bold uppercase tracking-widest text-sm">Projeto Experimental em Saúde</h4>
+       </div>
+       <p class="text-sm text-slate-600 leading-relaxed mb-3">A <strong>Verena</strong> é uma assistente virtual em fase de desenvolvimento e testes. Este sistema integra projetos de <strong>Iniciação Científica</strong> vinculados a instituições de ensino superior e está em constante aprimoramento.</p>
+       <p class="text-sm text-slate-600 italic"><strong>Importante:</strong> As interações nesta plataforma são monitoradas por pesquisadores da área da saúde para fins acadêmicos. Esta IA não substitui a consulta médica ou o aconselhamento profissional especializado.</p>
       </div><!-- Link Section -->
       <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 mb-6 border-2 border-purple-200">
        <h3 class="font-bold text-xl mb-3 flex items-center gap-2" style="color: #6d28d9;"><span>🌐</span> <span>Acesse a Verena Online</span></h3><a href="https://projeto-verena.onrender.com/" target="_blank" rel="noopener noreferrer" class="block bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow mb-3">
@@ -616,5 +663,5 @@
         
         onConfigChange(config);
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c43f815a11e1ac2',t:'MTc2OTQ3MjAxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c440dc7462da523',t:'MTc2OTQ3MjkwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
