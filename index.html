@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saúde e Autonomia: Direitos do Idoso</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        .font-heading {
+            font-family: 'Merriweather', Georgia, serif;
+        }
+        
+        .font-body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .gradient-medical {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f766e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gradient-medical::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(13, 148, 136, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(79, 70, 229, 0.15) 0%, transparent 50%);
+            animation: pulseGlow 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .card-interactive {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-interactive::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #0d9488, #14b8a6);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .card-interactive:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card-interactive:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(13, 148, 136, 0.3);
+            background: rgba(255, 255, 255, 1);
+        }
+        
+        .card-interactive.expanded {
+            transform: scale(1);
+            box-shadow: 0 25px 70px rgba(13, 148, 136, 0.4);
+        }
+        
+        .card-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-interactive.expanded .card-content {
+            max-height: 1000px;
+        }
+        
+        .icon-wrapper {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .card-interactive:hover .icon-wrapper {
+            transform: rotate(10deg) scale(1.1);
+        }
+        
+        .card-interactive.expanded .icon-wrapper {
+            transform: scale(1.2);
+        }
+        
+        .expand-indicator {
+            transition: transform 0.3s ease;
+        }
+        
+        .card-interactive.expanded .expand-indicator {
+            transform: rotate(180deg);
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        .stagger-6 { animation-delay: 0.6s; }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .alert-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 6px solid #f59e0b;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .alert-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            gap: 6px;
+        }
+        
+        @media (max-width: 768px) {
+            .icon-wrapper {
+                width: 56px;
+                height: 56px;
+                font-size: 28px;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body">
+  <div id="app-container" class="h-full w-full overflow-auto gradient-medical"><!-- Hero Header -->
+   <header class="relative z-10 text-center py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+     <div class="floating inline-flex items-center justify-center w-24 h-24 rounded-3xl mb-6 shadow-2xl" style="background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);"><span class="text-6xl">🩺</span>
+     </div>
+     <h1 id="page-title" class="font-heading text-4xl md:text-6xl font-black mb-4 text-white drop-shadow-lg">Respeito e Ética na Saúde</h1>
+     <p id="subtitle-text" class="text-xl md:text-2xl italic font-medium text-teal-100 max-w-3xl mx-auto leading-relaxed">"Não sou vozinha, sou paciente. Minha autonomia é meu direito."</p>
+     <div class="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20"><span class="text-lg">📜</span> <span class="text-sm font-semibold">Lei 10.741/2003 - Estatuto do Idoso</span>
+     </div>
+    </div>
+   </header><!-- Interactive Cards -->
+   <main class="relative z-10 px-6 pb-16">
+    <div class="max-w-5xl mx-auto">
+     <div class="mb-8 text-center">
+      <p class="text-white/90 text-lg font-medium">👇 Clique nos cards para expandir e ver mais detalhes</p>
+     </div>
+     <div class="grid gap-6 md:grid-cols-2"><!-- Card 1: Identidade -->
+      <article class="card-interactive fade-in stagger-1 rounded-3xl p-6 shadow-xl" onclick="toggleCard(this)">
+       <div class="flex items-start gap-4">
+        <div class="icon-wrapper" style="background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);"><span>👤</span>
+        </div>
+        <div class="flex-1">
+         <div class="flex items-start justify-between mb-3">
+          <h3 class="font-heading text-2xl font-bold" style="color: #0f766e;">Identidade e Dignidade</h3>
+          <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #0d9488;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+         </div>
+         <p class="text-base leading-relaxed" style="color: #334155;">O idoso deve ser chamado pelo <strong>nome próprio</strong>. O uso de termos diminutivos configura "elderspeak".</p>
+         <div class="card-content mt-4">
+          <div class="border-t border-gray-200 pt-4 space-y-3">
+           <p class="text-sm leading-relaxed" style="color: #475569;"><strong>O que é elderspeak?</strong><br>
+             É uma forma de comunicação infantilizada que inclui termos como "mãezinha", "vovô", "querido". Estudos mostram que isso compromete a saúde mental e reduz a adesão ao tratamento.</p>
+           <div class="bg-teal-50 p-4 rounded-xl border-l-4 border-teal-500">
+            <p class="text-sm font-semibold" style="color: #0f766e;">✓ Correto: "Sr. João, como o senhor está se sentindo hoje?"<br>
+              ✗ Incorreto: "E aí vovô, como tá se sentindo?"</p>
+           </div><span class="badge" style="background: rgba(13, 148, 136, 0.15); color: #0d9488;"> 📚 Art. 10, § 2º do Estatuto do Idoso </span>
+          </div>
+         </div>
+        </div>
+       </div>
+      </article><!-- Card 2: Autonomia -->
+      <article class="card-interactive fade-in stagger-2 rounded-3xl p-6 shadow-xl" onclick="toggleCard(this)">
+       <div class="flex items-start gap-4">
+        <div class="icon-wrapper" style="background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);"><span>🧠</span>
+        </div>
+        <div class="flex-1">
+         <div class="flex items-start justify-between mb-3">
+          <h3 class="font-heading text-2xl font-bold" style="color: #0e7490;">Autonomia Decisória</h3>
+          <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #0891b2;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+         </div>
+         <p class="text-base leading-relaxed" style="color: #334155;">Paciente idoso com plenas faculdades tem o direito de decidir sobre seus tratamentos.</p>
+         <div class="card-content mt-4">
+          <div class="border-t border-gray-200 pt-4 space-y-3">
+           <p class="text-sm leading-relaxed" style="color: #475569;"><strong>Consentimento Informado:</strong><br>
+             O médico deve explicar diagnóstico, prognóstico, riscos e benefícios de forma clara, sem jargões médicos complexos. O idoso tem o direito de aceitar ou recusar tratamentos.</p>
+           <div class="bg-cyan-50 p-4 rounded-xl border-l-4 border-cyan-500">
+            <p class="text-sm font-semibold" style="color: #0e7490;">⚖️ O idoso NÃO perde sua capacidade legal apenas pela idade. A autonomia deve ser respeitada enquanto houver discernimento.</p>
+           </div><span class="badge" style="background: rgba(8, 145, 178, 0.15); color: #0891b2;"> ⚕️ Código de Ética Médica (Art. 31) </span>
+          </div>
+         </div>
+        </div>
+       </div>
+      </article><!-- Card 3: Acompanhante -->
+      <article class="card-interactive fade-in stagger-3 rounded-3xl p-6 shadow-xl" onclick="toggleCard(this)">
+       <div class="flex items-start gap-4">
+        <div class="icon-wrapper" style="background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);"><span>🤝</span>
+        </div>
+        <div class="flex-1">
+         <div class="flex items-start justify-between mb-3">
+          <h3 class="font-heading text-2xl font-bold" style="color: #4338ca;">Acompanhante 24h</h3>
+          <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #4f46e5;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+         </div>
+         <p class="text-base leading-relaxed" style="color: #334155;">Direito à permanência integral de acompanhante em internações hospitalares.</p>
+         <div class="card-content mt-4">
+          <div class="border-t border-gray-200 pt-4 space-y-3">
+           <p class="text-sm leading-relaxed" style="color: #475569;"><strong>O que diz a lei:</strong><br>
+             A unidade de saúde é <strong>obrigada</strong> a viabilizar estrutura para que um acompanhante permaneça 24 horas junto ao idoso internado, seja em hospital público ou privado.</p>
+           <ul class="text-sm space-y-2" style="color: #475569;">
+            <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>Vale para UTI, enfermaria e observação</span></li>
+            <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>O hospital não pode cobrar pelo acompanhante</span></li>
+            <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>Deve fornecer alimentação e estrutura mínima</span></li>
+           </ul><span class="badge" style="background: rgba(79, 70, 229, 0.15); color: #4f46e5;"> 📋 Art. 16 do Estatuto do Idoso </span>
+          </div>
+         </div>
+        </div>
+       </div>
+      </article><!-- Card 4: Prioridade -->
+      <article class="card-interactive fade-in stagger-4 rounded-3xl p-6 shadow-xl" onclick="toggleCard(this)">
+       <div class="flex items-start gap-4">
+        <div class="icon-wrapper" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);"><span>⏱️</span>
+        </div>
+        <div class="flex-1">
+         <div class="flex items-start justify-between mb-3">
+          <h3 class="font-heading text-2xl font-bold" style="color: #6d28d9;">Atendimento Prioritário</h3>
+          <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #7c3aed;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+         </div>
+         <p class="text-base leading-relaxed" style="color: #334155;">Prioridade em todos os serviços de saúde, públicos e privados.</p>
+         <div class="card-content mt-4">
+          <div class="border-t border-gray-200 pt-4 space-y-3">
+           <p class="text-sm leading-relaxed" style="color: #475569;"><strong>Onde se aplica:</strong></p>
+           <div class="grid grid-cols-2 gap-3">
+            <div class="bg-purple-50 p-3 rounded-lg text-center">
+             <div class="text-2xl mb-1">
+              🏥
+             </div>
+             <div class="text-xs font-semibold" style="color: #6d28d9;">
+              Hospitais e UPAs
+             </div>
+            </div>
+            <div class="bg-purple-50 p-3 rounded-lg text-center">
+             <div class="text-2xl mb-1">
+              💊
+             </div>
+             <div class="text-xs font-semibold" style="color: #6d28d9;">
+              Farmácias
+             </div>
+            </div>
+            <div class="bg-purple-50 p-3 rounded-lg text-center">
+             <div class="text-2xl mb-1">
+              🔬
+             </div>
+             <div class="text-xs font-semibold" style="color: #6d28d9;">
+              Laboratórios
+             </div>
+            </div>
+            <div class="bg-purple-50 p-3 rounded-lg text-center">
+             <div class="text-2xl mb-1">
+              📋
+             </div>
+             <div class="text-xs font-semibold" style="color: #6d28d9;">
+              Agendamentos
+             </div>
+            </div>
+           </div><span class="badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;"> 🏥 Art. 15, § 4º do Estatuto do Idoso </span>
+          </div>
+         </div>
+        </div>
+       </div>
+      </article><!-- Card 5: Medicamentos -->
+      <article class="card-interactive fade-in stagger-5 rounded-3xl p-6 shadow-xl" onclick="toggleCard(this)">
+       <div class="flex items-start gap-4">
+        <div class="icon-wrapper" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);"><span>💊</span>
+        </div>
+        <div class="flex-1">
+         <div class="flex items-start justify-between mb-3">
+          <h3 class="font-heading text-2xl font-bold" style="color: #047857;">Acesso a Medicamentos</h3>
+          <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #059669;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+         </div>
+         <p class="text-base leading-relaxed" style="color: #334155;">Fornecimento gratuito de medicamentos e recursos para tratamento.</p>
+         <div class="card-content mt-4">
+          <div class="border-t border-gray-200 pt-4 space-y-3">
+           <p class="text-sm leading-relaxed" style="color: #475569;"><strong>O que está incluído:</strong></p>
+           <ul class="text-sm space-y-2" style="color: #475569;">
+            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">💊</span> <span><strong>Medicamentos de uso continuado</strong> (hipertensão, diabetes, etc.)</span></li>
+            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">🦴</span> <span><strong>Próteses e órteses</strong> (cadeiras de rodas, bengalas, aparelhos auditivos)</span></li>
+            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">🩺</span> <span><strong>Recursos para reabilitação</strong></span></li>
+           </ul>
+           <div class="bg-emerald-50 p-4 rounded-xl border-l-4 border-emerald-500">
+            <p class="text-sm font-semibold" style="color: #047857;">💡 Programa Farmácia Popular oferece medicamentos gratuitos ou com até 90% de desconto para idosos.</p>
+           </div><span class="badge" style="background: rgba(5, 150, 105, 0.15); color: #059669;"> 💉 Art. 15, § 2º do Estatuto do Idoso </span>
+          </div>
+         </div>
+        </div>
+       </div>
+      </article><!-- Card 6: Denúncia (Full Width) -->
+      <article class="card-interactive fade-in stagger-6 rounded-3xl p-6 shadow-xl md:col-span-2 alert-box" onclick="toggleCard(this)">
+       <div class="relative z-10">
+        <div class="flex items-start gap-4">
+         <div class="icon-wrapper flex-shrink-0" style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);"><span>📢</span>
+         </div>
+         <div class="flex-1">
+          <div class="flex items-start justify-between mb-3">
+           <h3 class="font-heading text-2xl md:text-3xl font-bold" style="color: #92400e;">Como Denunciar Violações</h3>
+           <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+           </svg>
+          </div>
+          <p class="text-base leading-relaxed font-medium" style="color: #78350f;">Canais oficiais para reportar tratamento inadequado em serviços de saúde</p>
+          <div class="card-content mt-4">
+           <div class="border-t border-amber-300 pt-4 space-y-4">
+            <div class="grid md:grid-cols-3 gap-4">
+             <div class="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-md">
+              <div class="text-3xl mb-2">
+               📞
+              </div>
+              <h4 class="font-bold text-lg mb-2" style="color: #92400e;">Disque 100</h4>
+              <p class="text-sm" style="color: #78350f;">Canal nacional 24h de denúncias de violação de direitos humanos</p>
+             </div>
+             <div class="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-md">
+              <div class="text-3xl mb-2">
+               🏛️
+              </div>
+              <h4 class="font-bold text-lg mb-2" style="color: #92400e;">Ministério Público</h4>
+              <p class="text-sm" style="color: #78350f;">Promotoria do Idoso da sua região ou estadual</p>
+             </div>
+             <div class="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-md">
+              <div class="text-3xl mb-2">
+               🩺
+              </div>
+              <h4 class="font-bold text-lg mb-2" style="color: #92400e;">Conselhos</h4>
+              <p class="text-sm" style="color: #78350f;">CRM, COREN, CRF e outros conselhos profissionais</p>
+             </div>
+            </div>
+            <div class="bg-red-100 border-l-4 border-red-500 p-4 rounded-lg">
+             <p class="text-sm font-bold flex items-start gap-2" style="color: #991b1b;"><span class="text-xl">⚠️</span> <span>A omissão em casos de violência contra o idoso também é crime! Denuncie sempre que presenciar abusos ou maus-tratos.</span></p>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </article>
+     </div>
+    </div>
+   </main><!-- Footer -->
+   <footer class="relative z-10 text-center py-12 px-6 mt-12 bg-black/20 backdrop-blur-md border-t border-white/10">
+    <div class="max-w-4xl mx-auto">
+     <p class="text-base font-semibold mb-3 text-white">📖 Informações baseadas no Estatuto do Idoso (Lei 10.741/2003)</p>
+     <p class="text-sm text-teal-200 italic">Respeito, dignidade e autonomia não são favores — são direitos garantidos por lei</p>
+    </div>
+   </footer><!-- Floating AI Assistant Button --> <button id="ai-assistant-btn" class="fixed bottom-6 right-6 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-3xl transition-all duration-300 hover:scale-110 z-50" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);" onclick="toggleAiModal()" aria-label="Abrir informações da Verena"> <span class="floating">🤖</span> </button> <!-- AI Assistant Modal -->
+   <div id="ai-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4" onclick="closeModalOnBackdrop(event)">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-auto relative" onclick="event.stopPropagation()"><button onclick="toggleAiModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors" aria-label="Fechar">
+      <svg class="w-6 h-6" style="color: #475569;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg></button>
+     <div class="p-8"><!-- Header -->
+      <div class="text-center mb-6">
+       <div class="inline-flex items-center justify-center w-20 h-20 rounded-full mb-4 shadow-xl" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);"><span class="text-5xl">🤖</span>
+       </div>
+       <h2 class="font-heading text-3xl font-bold mb-2" style="color: #6d28d9;">Conheça a Verena</h2>
+       <p class="text-lg" style="color: #475569;">Sua assistente virtual para direitos do idoso</p>
+      </div><!-- Link Section -->
+      <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 mb-6 border-2 border-purple-200">
+       <h3 class="font-bold text-xl mb-3 flex items-center gap-2" style="color: #6d28d9;"><span>🌐</span> <span>Acesse a Verena Online</span></h3><a href="https://projeto-verena.onrender.com/" target="_blank" rel="noopener noreferrer" class="block bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow mb-3">
+        <div class="flex items-center justify-between">
+         <div class="flex-1">
+          <p class="font-semibold text-lg" style="color: #7c3aed;">projeto-verena.onrender.com</p>
+          <p class="text-sm mt-1" style="color: #64748b;">Clique para abrir no navegador</p>
+         </div>
+         <svg class="w-6 h-6 flex-shrink-0" style="color: #7c3aed;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+         </svg>
+        </div></a>
+       <p class="text-sm" style="color: #6d28d9;">💬 Chat em tempo real • 📚 Base de conhecimento completa • 🔒 100% seguro</p>
+      </div><!-- Mobile Instructions -->
+      <div class="space-y-4">
+       <h3 class="font-bold text-xl flex items-center gap-2" style="color: #1e293b;"><span>📱</span> <span>Como instalar no telemóvel</span></h3>
+       <p class="text-sm leading-relaxed" style="color: #475569;">Tenha a Verena sempre ao alcance! Adicione como um ícone na tela inicial do seu telemóvel:</p><!-- Android Instructions -->
+       <div class="bg-green-50 rounded-xl p-5 border-l-4 border-green-500">
+        <div class="flex items-start gap-3">
+         <div class="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
+          1
+         </div>
+         <div class="flex-1">
+          <h4 class="font-bold text-lg mb-2" style="color: #166534;">📱 Android (Chrome)</h4>
+          <ol class="space-y-2 text-sm" style="color: #15803d;">
+           <li class="flex items-start gap-2"><span class="font-bold">1.</span> <span>Abra o link acima no <strong>Chrome</strong></span></li>
+           <li class="flex items-start gap-2"><span class="font-bold">2.</span> <span>Clique nos <strong>três pontinhos (⋮)</strong> no canto superior direito</span></li>
+           <li class="flex items-start gap-2"><span class="font-bold">3.</span> <span>Selecione <strong>"Instalar aplicação"</strong> ou <strong>"Adicionar ao ecrã principal"</strong></span></li>
+          </ol>
+         </div>
+        </div>
+       </div><!-- iPhone Instructions -->
+       <div class="bg-blue-50 rounded-xl p-5 border-l-4 border-blue-500">
+        <div class="flex items-start gap-3">
+         <div class="flex-shrink-0 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+          2
+         </div>
+         <div class="flex-1">
+          <h4 class="font-bold text-lg mb-2" style="color: #1e40af;">📱 iPhone (Safari)</h4>
+          <ol class="space-y-2 text-sm" style="color: #1e3a8a;">
+           <li class="flex items-start gap-2"><span class="font-bold">1.</span> <span>Abra o link acima no <strong>Safari</strong></span></li>
+           <li class="flex items-start gap-2"><span class="font-bold">2.</span> <span>Clique no <strong>botão de partilha</strong> (quadrado com seta ↑)</span></li>
+           <li class="flex items-start gap-2"><span class="font-bold">3.</span> <span>Selecione <strong>"Adicionar ao ecrã inicial"</strong></span></li>
+          </ol>
+         </div>
+        </div>
+       </div><!-- Benefits -->
+       <div class="bg-purple-50 rounded-xl p-5 border-2 border-purple-200">
+        <h4 class="font-bold text-lg mb-3 flex items-center gap-2" style="color: #6d28d9;"><span>✨</span> <span>Vantagens da Verena</span></h4>
+        <ul class="space-y-2 text-sm" style="color: #5b21b6;">
+         <li class="flex items-start gap-2"><span>🎯</span> <span>Acesso rápido a informações sobre direitos do idoso</span></li>
+         <li class="flex items-start gap-2"><span>💬</span> <span>Chat interativo para tirar dúvidas em tempo real</span></li>
+         <li class="flex items-start gap-2"><span>🏥</span> <span>Ideal para usar no hospital ou durante consultas</span></li>
+         <li class="flex items-start gap-2"><span>📱</span> <span>Funciona como uma aplicação no seu telemóvel</span></li>
+        </ul>
+       </div>
+      </div><!-- CTA Button -->
+      <div class="mt-6 text-center"><a href="https://projeto-verena.onrender.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);"> <span>🤖</span> <span>Conversar com a Verena Agora</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg></a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+        const defaultConfig = {
+            page_title: 'Respeito e Ética na Saúde',
+            subtitle_text: '"Não sou vozinha, sou paciente. Minha autonomia é meu direito."',
+            background_color: '#0f172a',
+            primary_color: '#0d9488',
+            text_color: '#334155'
+        };
+
+        let config = { ...defaultConfig };
+
+        function toggleCard(card) {
+            const isExpanded = card.classList.contains('expanded');
+            
+            document.querySelectorAll('.card-interactive').forEach(c => {
+                if (c !== card) {
+                    c.classList.remove('expanded');
+                }
+            });
+            
+            if (isExpanded) {
+                card.classList.remove('expanded');
+            } else {
+                card.classList.add('expanded');
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function toggleAiModal() {
+            const modal = document.getElementById('ai-modal');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function closeModalOnBackdrop(event) {
+            if (event.target.id === 'ai-modal') {
+                toggleAiModal();
+            }
+        }
+
+        async function onConfigChange(newConfig) {
+            const titleEl = document.getElementById('page-title');
+            const subtitleEl = document.getElementById('subtitle-text');
+            
+            if (titleEl) {
+                titleEl.textContent = newConfig.page_title || defaultConfig.page_title;
+            }
+            if (subtitleEl) {
+                subtitleEl.textContent = newConfig.subtitle_text || defaultConfig.subtitle_text;
+            }
+        }
+
+        function mapToCapabilities(cfg) {
+            return {
+                recolorables: [
+                    {
+                        get: () => cfg.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            cfg.background_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => cfg.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            cfg.primary_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ primary_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => cfg.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            cfg.text_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(cfg) {
+            return new Map([
+                ['page_title', cfg.page_title || defaultConfig.page_title],
+                ['subtitle_text', cfg.subtitle_text || defaultConfig.subtitle_text]
+            ]);
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+            config = window.elementSdk.config || config;
+        }
+        
+        onConfigChange(config);
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c43f815a11e1ac2',t:'MTc2OTQ3MjAxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
