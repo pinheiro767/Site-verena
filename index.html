@@ -147,7 +147,6 @@
         .stagger-3 { animation-delay: 0.3s; }
         .stagger-4 { animation-delay: 0.4s; }
         .stagger-5 { animation-delay: 0.5s; }
-        .stagger-6 { animation-delay: 0.6s; }
         
         .floating {
             animation: floating 3s ease-in-out infinite;
@@ -156,29 +155,6 @@
         @keyframes floating {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
-        }
-        
-        .alert-box {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-left: 6px solid #f59e0b;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .alert-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
-            animation: shimmer 3s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
         }
         
         .badge {
@@ -269,7 +245,7 @@
            <p class="text-sm leading-relaxed" style="color: #475569;"><strong>Consentimento Informado:</strong><br>
              O médico deve explicar diagnóstico, prognóstico, riscos e benefícios de forma clara, sem jargões médicos complexos. O idoso tem o direito de aceitar ou recusar tratamentos.</p>
            <div class="bg-cyan-50 p-4 rounded-xl border-l-4 border-cyan-500">
-            <p class="text-sm font-semibold" style="color: #0e7490;"> O idoso NÃO perde sua capacidade legal apenas pela idade. A autonomia deve ser respeitada enquanto houver discernimento.</p>
+            <p class="text-sm font-semibold" style="color: #0e7490;">⚖️ O idoso NÃO perde sua capacidade legal apenas pela idade. A autonomia deve ser respeitada enquanto houver discernimento.</p>
            </div><span class="badge" style="background: rgba(8, 145, 178, 0.15); color: #0891b2;"> ⚕️ Código de Ética Médica (Art. 31) </span>
           </div>
          </div>
@@ -292,7 +268,7 @@
            <p class="text-sm leading-relaxed" style="color: #475569;"><strong>O que diz a lei:</strong><br>
              A unidade de saúde é <strong>obrigada</strong> a viabilizar estrutura para que um acompanhante permaneça 24 horas junto ao idoso internado, seja em hospital público ou privado.</p>
            <ul class="text-sm space-y-2" style="color: #475569;">
-            <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">🏥</span> <span>Vale para UTI, enfermaria e observação</span></li>
+            <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>Vale para UTI, enfermaria e observação</span></li>
             <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>O hospital não pode cobrar pelo acompanhante</span></li>
             <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>Deve fornecer alimentação e estrutura mínima</span></li>
            </ul><span class="badge" style="background: rgba(79, 70, 229, 0.15); color: #4f46e5;"> 📋 Art. 16 do Estatuto do Idoso </span>
@@ -376,52 +352,6 @@
            <div class="bg-emerald-50 p-4 rounded-xl border-l-4 border-emerald-500">
             <p class="text-sm font-semibold" style="color: #047857;">💡 Programa Farmácia Popular oferece medicamentos gratuitos ou com até 90% de desconto para idosos.</p>
            </div><span class="badge" style="background: rgba(5, 150, 105, 0.15); color: #059669;"> 💉 Art. 15, § 2º do Estatuto do Idoso </span>
-          </div>
-         </div>
-        </div>
-       </div>
-      </article><!-- Card 6: Denúncia (Full Width) -->
-      <article class="card-interactive fade-in stagger-6 rounded-3xl p-6 shadow-xl md:col-span-2 alert-box" onclick="toggleCard(this)">
-       <div class="relative z-10">
-        <div class="flex items-start gap-4">
-         <div class="icon-wrapper flex-shrink-0" style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);"><span>��</span>
-         </div>
-         <div class="flex-1">
-          <div class="flex items-start justify-between mb-3">
-           <h3 class="font-heading text-2xl md:text-3xl font-bold" style="color: #92400e;">Como Denunciar Violacoes</h3>
-           <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-           </svg>
-          </div>
-          <p class="text-base leading-relaxed font-medium" style="color: #78350f;">Canais oficiais para reportar tratamento inadequado em serviços de saúde</p>
-          <div class="card-content mt-4">
-           <div class="border-t border-amber-300 pt-4 space-y-4">
-            <div class="grid md:grid-cols-3 gap-4">
-             <div class="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-md">
-              <div class="text-3xl mb-2">
-               📞
-              </div>
-              <h4 class="font-bold text-lg mb-2" style="color: #92400e;">Disque 100</h4>
-              <p class="text-sm" style="color: #78350f;">Canal nacional 24h de denúncias de violação de direitos humanos</p>
-             </div>
-             <div class="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-md">
-              <div class="text-3xl mb-2">
-               🏛️
-              </div>
-              <h4 class="font-bold text-lg mb-2" style="color: #92400e;">Ministério Público</h4>
-              <p class="text-sm" style="color: #78350f;">Promotoria do Idoso da sua região ou estadual</p>
-             </div>
-             <div class="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-md">
-              <div class="text-3xl mb-2">
-               🩺
-              </div>
-              <h4 class="font-bold text-lg mb-2" style="color: #92400e;">Conselhos</h4>
-              <p class="text-sm" style="color: #78350f;">CRM, COREN, CRF e outros conselhos profissionais</p>
-             </div>
-            </div>
-            <div class="bg-red-100 border-l-4 border-red-500 p-4 rounded-lg">
-             <p class="text-sm font-bold flex items-start gap-2" style="color: #991b1b;"><span class="text-xl">⚠️</span> <span>A omissão em casos de violência contra o idoso também é crime! Denuncie sempre que presenciar abusos ou maus-tratos.</span></p>
-            </div>
-           </div>
           </div>
          </div>
         </div>
@@ -663,5 +593,5 @@
         
         onConfigChange(config);
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c440dc7462da523',t:'MTc2OTQ3MjkwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c441fd7a6591d0d',t:'MTc2OTQ3MzY0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ </html>
