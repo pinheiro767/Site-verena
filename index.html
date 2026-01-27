@@ -147,6 +147,8 @@
         .stagger-3 { animation-delay: 0.3s; }
         .stagger-4 { animation-delay: 0.4s; }
         .stagger-5 { animation-delay: 0.5s; }
+        .stagger-6 { animation-delay: 0.6s; }
+        .stagger-7 { animation-delay: 0.7s; }
         
         .floating {
             animation: floating 3s ease-in-out infinite;
@@ -165,6 +167,45 @@
             font-size: 13px;
             font-weight: 600;
             gap: 6px;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding: 16px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            background: rgba(255, 165, 0, 0.05);
+            padding-left: 8px;
+            padding-right: 8px;
+            border-radius: 8px;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 12px;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
         }
         
         @media (max-width: 768px) {
@@ -268,7 +309,7 @@
            <p class="text-sm leading-relaxed" style="color: #475569;"><strong>O que diz a lei:</strong><br>
              A unidade de saúde é <strong>obrigada</strong> a viabilizar estrutura para que um acompanhante permaneça 24 horas junto ao idoso internado, seja em hospital público ou privado.</p>
            <ul class="text-sm space-y-2" style="color: #475569;">
-            <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">���</span> <span>Vale para UTI, enfermaria e observação</span></li>
+            <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>Vale para UTI, enfermaria e observação</span></li>
             <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>O hospital não pode cobrar pelo acompanhante</span></li>
             <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>Deve fornecer alimentação e estrutura mínima</span></li>
            </ul><span class="badge" style="background: rgba(79, 70, 229, 0.15); color: #4f46e5;"> 📋 Art. 16 do Estatuto do Idoso </span>
@@ -294,7 +335,7 @@
            <div class="grid grid-cols-2 gap-3">
             <div class="bg-purple-50 p-3 rounded-lg text-center">
              <div class="text-2xl mb-1">
-              ���
+              🏥
              </div>
              <div class="text-xs font-semibold" style="color: #6d28d9;">
               Hospitais e UPAs
@@ -356,9 +397,195 @@
          </div>
         </div>
        </div>
+      </article><!-- Card 6: Verena AI Assistant -->
+      <article class="card-interactive fade-in rounded-3xl p-6 shadow-xl md:col-span-2" style="animation-delay: 0.6s; background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);" onclick="toggleCard(this)">
+       <div class="flex items-start gap-4">
+        <div class="icon-wrapper" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); box-shadow: 0 8px 32px rgba(124, 58, 237, 0.3);"><span>🤖</span>
+        </div>
+        <div class="flex-1">
+         <div class="flex items-start justify-between mb-3">
+          <div>
+           <h3 class="font-heading text-2xl font-bold" style="color: #6d28d9;">Conheça a Verena</h3>
+           <p class="text-sm mt-1" style="color: #7c3aed;">Assistente Inteligente de Apoio ao Cuidador</p>
+          </div>
+          <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #7c3aed;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+         </div>
+         <p class="text-base leading-relaxed" style="color: #334155;">Uma assistente inteligente desenvolvida como <strong>PWA</strong> (instalação leve), focada em traduzir a complexidade do cuidado diário com idosos em orientações acessíveis e éticas.</p>
+         <div class="card-content mt-4">
+          <div class="border-t border-purple-200 pt-4 space-y-4"><!-- Technical Highlights -->
+           <div>
+            <h4 class="font-bold text-lg mb-3 flex items-center gap-2" style="color: #6d28d9;"><span>⚡</span> <span>Destaques Técnicos</span></h4>
+            <div class="grid md:grid-cols-2 gap-3"><!-- Vision AI -->
+             <div class="bg-white p-4 rounded-xl border-2 border-purple-100 hover:border-purple-300 transition-colors">
+              <div class="flex items-center gap-2 mb-2"><span class="text-2xl">👁️</span>
+               <h5 class="font-bold text-sm" style="color: #6d28d9;">Visão Computacional</h5>
+              </div>
+              <p class="text-xs leading-relaxed" style="color: #475569;">Leitura de exames, bulas e análise de riscos domiciliares via foto</p>
+             </div><!-- Voice Interface -->
+             <div class="bg-white p-4 rounded-xl border-2 border-purple-100 hover:border-purple-300 transition-colors">
+              <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🎤</span>
+               <h5 class="font-bold text-sm" style="color: #6d28d9;">Interface Inclusiva</h5>
+              </div>
+              <p class="text-xs leading-relaxed" style="color: #475569;">Comandos por voz (STT) e leitura de respostas (TTS)</p>
+             </div><!-- Privacy -->
+             <div class="bg-white p-4 rounded-xl border-2 border-purple-100 hover:border-purple-300 transition-colors">
+              <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🔒</span>
+               <h5 class="font-bold text-sm" style="color: #6d28d9;">Privacidade Total</h5>
+              </div>
+              <p class="text-xs leading-relaxed" style="color: #475569;">Arquitetura Stateless em conformidade rigorosa com a LGPD</p>
+             </div><!-- Ethics -->
+             <div class="bg-white p-4 rounded-xl border-2 border-purple-100 hover:border-purple-300 transition-colors">
+              <div class="flex items-center gap-2 mb-2"><span class="text-2xl">⚕️</span>
+               <h5 class="font-bold text-sm" style="color: #6d28d9;">Protocolo Ético</h5>
+              </div>
+              <p class="text-xs leading-relaxed" style="color: #475569;">Combate ao idadismo e priorização de protocolos de emergência (SAMU 192)</p>
+             </div>
+            </div>
+           </div><!-- Key Features -->
+           <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-4 rounded-xl border border-purple-200">
+            <h4 class="font-bold text-sm mb-3 flex items-center gap-2" style="color: #6d28d9;"><span>✨</span> <span>Funcionalidades Principais</span></h4>
+            <ul class="text-xs space-y-2" style="color: #5b21b6;">
+             <li class="flex items-start gap-2"><span class="flex-shrink-0">📸</span> <span><strong>Análise de Imagens:</strong> Tire fotos de exames médicos ou bulas para receber explicações em linguagem simples</span></li>
+             <li class="flex items-start gap-2"><span class="flex-shrink-0">🏠</span> <span><strong>Avaliação de Riscos:</strong> Identifique perigos domésticos através de fotos do ambiente</span></li>
+             <li class="flex items-start gap-2"><span class="flex-shrink-0">💬</span> <span><strong>Chat Interativo:</strong> Tire dúvidas sobre cuidados, direitos e procedimentos médicos</span></li>
+             <li class="flex items-start gap-2"><span class="flex-shrink-0">🚨</span> <span><strong>Emergências:</strong> Orientação imediata para situações críticas com priorização do SAMU 192</span></li>
+            </ul>
+           </div><!-- CTA Button -->
+           <div class="text-center pt-2"><a href="https://projeto-verena.onrender.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-6 py-3 rounded-full text-white font-bold shadow-lg hover:shadow-xl transition-all hover:scale-105" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);"> <span>🤖</span> <span>Conversar com a Verena</span>
+             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+             </svg></a>
+           </div>
+           <div class="flex flex-wrap gap-2 justify-center"><span class="badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;"> 📱 PWA - Instale no seu telemóvel </span> <span class="badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;"> 🔬 Projeto de Iniciação Científica </span>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </article><!-- Card 7: FAQ - Perguntas Frequentes -->
+      <article class="card-interactive fade-in rounded-3xl p-6 shadow-xl md:col-span-2 stagger-7" style="background: linear-gradient(135deg, rgba(255, 165, 0, 0.05) 0%, rgba(255, 140, 0, 0.05) 100%);" onclick="toggleCard(this)">
+       <div class="flex items-start gap-4">
+        <div class="icon-wrapper" style="background: linear-gradient(135deg, #f59e0b 0%, #fb923c 100%); box-shadow: 0 8px 32px rgba(245, 158, 11, 0.3);"><span>❓</span>
+        </div>
+        <div class="flex-1">
+         <div class="flex items-start justify-between mb-3">
+          <div>
+           <h3 class="font-heading text-2xl font-bold" style="color: #c2410c;">Perguntas Frequentes (FAQ)</h3>
+           <p class="text-sm mt-1" style="color: #ea580c;">Dúvidas sobre o Projeto Verena</p>
+          </div>
+          <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+         </div>
+         <p class="text-base leading-relaxed" style="color: #334155;">Respostas para as perguntas mais comuns de cuidadores, familiares e da comunidade académica sobre a Verena.</p>
+         <div class="card-content mt-4">
+          <div class="border-t border-orange-200 pt-4 space-y-4"><!-- Academic Section -->
+           <div class="bg-white rounded-xl p-5 border-2 border-orange-100">
+            <h4 class="font-bold text-lg mb-4 flex items-center gap-2" style="color: #c2410c;"><span>🎓</span> <span>Para a Comunidade Académica e Alunos</span></h4><!-- FAQ Item 1 -->
+            <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)">
+             <div class="flex items-start justify-between gap-3">
+              <div class="flex-1">
+               <h5 class="font-semibold text-sm mb-1" style="color: #c2410c;">1. O projeto é um chatbot comum ou uma IA de Segunda Geração?</h5>
+               <div class="faq-answer text-xs leading-relaxed" style="color: #475569;">
+                <p class="font-semibold mb-2" style="color: #ea580c;">É uma IA de Segunda Geração.</p>
+                <p>Diferente de sistemas baseados apenas em regras ou texto, a Verena utiliza <strong>multimodalidade nativa</strong> (processa imagem e voz em tempo real) e possui uma camada de <strong>instruções de sistema (System Instructions)</strong> que moldam seu comportamento ético e técnico, sem depender apenas do input do utilizador.</p>
+               </div>
+              </div>
+              <svg class="faq-icon w-5 h-5 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+             </div>
+            </div><!-- FAQ Item 2 -->
+            <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)">
+             <div class="flex items-start justify-between gap-3">
+              <div class="flex-1">
+               <h5 class="font-semibold text-sm mb-1" style="color: #c2410c;">2. Como é garantida a privacidade dos dados de saúde?</h5>
+               <div class="faq-answer text-xs leading-relaxed" style="color: #475569;">
+                <p>Utilizamos uma <strong>Arquitetura Stateless via API</strong>. Isso significa que os dados processados não são armazenados em bancos de dados persistentes nem utilizados para treinamento do modelo. Ao fechar a sessão, a informação é descartada, garantindo conformidade com a <strong>LGPD</strong>.</p>
+               </div>
+              </div>
+              <svg class="faq-icon w-5 h-5 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+             </div>
+            </div><!-- FAQ Item 3 -->
+            <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)">
+             <div class="flex items-start justify-between gap-3">
+              <div class="flex-1">
+               <h5 class="font-semibold text-sm mb-1" style="color: #c2410c;">3. Qual a vantagem de usar o Gemini 2.0 Flash em vez de outros modelos?</h5>
+               <div class="faq-answer text-xs leading-relaxed" style="color: #475569;">
+                <p class="font-semibold mb-2" style="color: #ea580c;">A latência.</p>
+                <p>Em contextos de cuidado e saúde, a resposta precisa ser quase instantânea. O modelo <strong>Flash</strong> oferece o equilíbrio perfeito entre raciocínio complexo e <strong>baixa latência (inferior a 2 segundos)</strong>.</p>
+               </div>
+              </div>
+              <svg class="faq-icon w-5 h-5 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+             </div>
+            </div>
+           </div><!-- Caregivers Section -->
+           <div class="bg-white rounded-xl p-5 border-2 border-orange-100">
+            <h4 class="font-bold text-lg mb-4 flex items-center gap-2" style="color: #c2410c;"><span>🏥</span> <span>Para Cuidadores e Familiares</span></h4><!-- FAQ Item 4 -->
+            <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)">
+             <div class="flex items-start justify-between gap-3">
+              <div class="flex-1">
+               <h5 class="font-semibold text-sm mb-1" style="color: #c2410c;">1. A Verena substitui o médico ou o enfermeiro?</h5>
+               <div class="faq-answer text-xs leading-relaxed" style="color: #475569;">
+                <p class="font-semibold mb-2" style="color: #ea580c;">Nunca.</p>
+                <p>A Verena é uma <strong>ferramenta de suporte e educação</strong>. Ela ajuda a entender termos técnicos de bulas e exames ou a organizar a rotina, mas sempre orienta o utilizador a procurar o profissional de saúde responsável.</p>
+               </div>
+              </div>
+              <svg class="faq-icon w-5 h-5 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+             </div>
+            </div><!-- FAQ Item 5 -->
+            <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)">
+             <div class="flex items-start justify-between gap-3">
+              <div class="flex-1">
+               <h5 class="font-semibold text-sm mb-1" style="color: #c2410c;">2. Eu preciso pagar ou descarregar a aplicação pela loja?</h5>
+               <div class="faq-answer text-xs leading-relaxed" style="color: #475569;">
+                <p class="font-semibold mb-2" style="color: #ea580c;">Não.</p>
+                <p>A Verena é um <strong>PWA (Progressive Web App)</strong>. Você acede pelo link, adiciona à tela inicial do seu telemóvel e ela funciona como uma aplicação, mas sem ocupar espaço na memória e de forma totalmente gratuita.</p>
+               </div>
+              </div>
+              <svg class="faq-icon w-5 h-5 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+             </div>
+            </div><!-- FAQ Item 6 -->
+            <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)">
+             <div class="flex items-start justify-between gap-3">
+              <div class="flex-1">
+               <h5 class="font-semibold text-sm mb-1" style="color: #c2410c;">3. O que acontece se eu enviar uma foto de uma emergência?</h5>
+               <div class="faq-answer text-xs leading-relaxed" style="color: #475569;">
+                <p>A Verena possui um <strong>Filtro de Emergência</strong>. Se ela identificar sinais de perigo imediato (como uma queda grave ou desmaio nas imagens/relatos), ela interromperá o fluxo comum para destacar o contacto do <strong>SAMU (192)</strong>.</p>
+               </div>
+              </div>
+              <svg class="faq-icon w-5 h-5 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+             </div>
+            </div><!-- FAQ Item 7 -->
+            <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)">
+             <div class="flex items-start justify-between gap-3">
+              <div class="flex-1">
+               <h5 class="font-semibold text-sm mb-1" style="color: #c2410c;">4. Ela entende termos jurídicos sobre os idosos?</h5>
+               <div class="faq-answer text-xs leading-relaxed" style="color: #475569;">
+                <p class="font-semibold mb-2" style="color: #ea580c;">Sim.</p>
+                <p>O sistema integra diretrizes do <strong>Estatuto da Pessoa Idosa</strong>, ajudando o cuidador a entender direitos fundamentais, como prioridades e deveres de assistência, de forma simples e direta.</p>
+               </div>
+              </div>
+              <svg class="faq-icon w-5 h-5 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+             </div>
+            </div>
+           </div><!-- CTA -->
+           <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl p-4 border-2 border-orange-200 text-center">
+            <p class="text-sm font-semibold mb-3" style="color: #c2410c;">💬 Tem mais perguntas? Converse diretamente com a Verena!</p><a href="https://projeto-verena.onrender.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2 rounded-full text-white font-bold text-sm shadow-md hover:shadow-lg transition-all hover:scale-105" style="background: linear-gradient(135deg, #f59e0b 0%, #fb923c 100%);"> <span>🤖</span> <span>Falar com a Verena</span>
+             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+             </svg></a>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
       </article>
      </div><!-- Project Evolution Timeline -->
-     <section class="max-w-4xl mx-auto px-6 py-10 bg-white rounded-3xl shadow-sm my-10 border border-slate-100 fade-in" style="animation-delay: 0.6s;">
+     <section class="max-w-4xl mx-auto px-6 py-10 bg-white rounded-3xl shadow-sm my-10 border border-slate-100 fade-in" style="animation-delay: 0.8s;">
       <div class="flex items-center gap-3 mb-6"><span class="text-2xl">📈</span>
        <h2 class="font-heading text-2xl text-slate-800">Evolução do Projeto e Descobertas</h2>
       </div>
@@ -391,7 +618,7 @@
        <p class="text-xs text-slate-400">Resultados e resumos de artigos publicados no PubMed serão listados aqui periodicamente.</p>
       </div>
      </section><!-- Scientific Evidence Section -->
-     <section class="mt-12 space-y-6 px-4 fade-in" style="animation-delay: 0.7s;">
+     <section class="mt-12 space-y-6 px-4 fade-in" style="animation-delay: 0.9s;">
       <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-2xl shadow-lg">
        <h3 class="font-heading text-2xl text-blue-900 flex items-center gap-3 mb-4"><span class="text-3xl">🇧🇷</span> <span>Diretrizes do Ministério da Saúde</span></h3>
        <ul class="text-base text-blue-800 space-y-3 leading-relaxed">
@@ -449,7 +676,7 @@
        <p class="text-sm text-slate-600 italic"><strong>Importante:</strong> As interações nesta plataforma são monitoradas por pesquisadores da área da saúde para fins acadêmicos. Esta IA não substitui a consulta médica ou o aconselhamento profissional especializado.</p>
       </div><!-- Link Section -->
       <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 mb-6 border-2 border-purple-200">
-       <h3 class="font-bold text-xl mb-3 flex items-center gap-2" style="color: #6d28d9;"><span>����</span> <span>Acesse a Verena Online</span></h3><a href="https://projeto-verena.onrender.com/" target="_blank" rel="noopener noreferrer" class="block bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow mb-3">
+       <h3 class="font-bold text-xl mb-3 flex items-center gap-2" style="color: #6d28d9;"><span>🌐</span> <span>Acesse a Verena Online</span></h3><a href="https://projeto-verena.onrender.com/" target="_blank" rel="noopener noreferrer" class="block bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow mb-3">
         <div class="flex items-center justify-between">
          <div class="flex-1">
           <p class="font-semibold text-lg" style="color: #7c3aed;">projeto-verena.onrender.com</p>
@@ -536,6 +763,18 @@
             } else {
                 card.classList.add('expanded');
                 card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function toggleFaq(faqItem) {
+            const isActive = faqItem.classList.contains('active');
+            
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            if (!isActive) {
+                faqItem.classList.add('active');
             }
         }
 
@@ -626,5 +865,5 @@
         
         onConfigChange(config);
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c442af070e136f6',t:'MTc2OTQ3NDEwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c482b1ec08b02d0',t:'MTc2OTUxNjA1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
