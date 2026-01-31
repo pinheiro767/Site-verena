@@ -1,869 +1,347 @@
 <!doctype html>
 <html lang="pt-BR" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saúde e Autonomia: Direitos do Idoso</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Verena — Saúde Reprodutiva • Educação • Legislação</title>
+
+  <!-- Tailwind via CDN (prático p/ GitHub Pages) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="/_sdk/element_sdk.js"></script>
+
+  <!-- Fonte -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <style>
-        body {
-            box-sizing: border-box;
-        }
-        
-        * {
-            box-sizing: border-box;
-        }
-        
-        .font-heading {
-            font-family: 'Merriweather', Georgia, serif;
-        }
-        
-        .font-body {
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-        
-        .gradient-medical {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f766e 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .gradient-medical::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(13, 148, 136, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(79, 70, 229, 0.15) 0%, transparent 50%);
-            animation: pulseGlow 8s ease-in-out infinite;
-        }
-        
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-        
-        .card-interactive {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card-interactive::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #0d9488, #14b8a6);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-        
-        .card-interactive:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .card-interactive:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(13, 148, 136, 0.3);
-            background: rgba(255, 255, 255, 1);
-        }
-        
-        .card-interactive.expanded {
-            transform: scale(1);
-            box-shadow: 0 25px 70px rgba(13, 148, 136, 0.4);
-        }
-        
-        .card-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-interactive.expanded .card-content {
-            max-height: 1000px;
-        }
-        
-        .icon-wrapper {
-            width: 64px;
-            height: 64px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .card-interactive:hover .icon-wrapper {
-            transform: rotate(10deg) scale(1.1);
-        }
-        
-        .card-interactive.expanded .icon-wrapper {
-            transform: scale(1.2);
-        }
-        
-        .expand-indicator {
-            transition: transform 0.3s ease;
-        }
-        
-        .card-interactive.expanded .expand-indicator {
-            transform: rotate(180deg);
-        }
-        
-        .fade-in {
-            animation: fadeInUp 0.8s ease forwards;
-            opacity: 0;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .stagger-1 { animation-delay: 0.1s; }
-        .stagger-2 { animation-delay: 0.2s; }
-        .stagger-3 { animation-delay: 0.3s; }
-        .stagger-4 { animation-delay: 0.4s; }
-        .stagger-5 { animation-delay: 0.5s; }
-        .stagger-6 { animation-delay: 0.6s; }
-        .stagger-7 { animation-delay: 0.7s; }
-        
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            gap: 6px;
-        }
-        
-        .faq-item {
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            padding: 16px 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .faq-item:hover {
-            background: rgba(255, 165, 0, 0.05);
-            padding-left: 8px;
-            padding-right: 8px;
-            border-radius: 8px;
-        }
-        
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, opacity 0.3s ease;
-            opacity: 0;
-        }
-        
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            opacity: 1;
-            margin-top: 12px;
-        }
-        
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
-        }
-        
-        .faq-icon {
-            transition: transform 0.3s ease;
-        }
-        
-        @media (max-width: 768px) {
-            .icon-wrapper {
-                width: 56px;
-                height: 56px;
-                font-size: 28px;
-            }
-        }
-    </style>
-  <style>@view-transition { navigation: auto; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="h-full font-body">
-  <div id="app-container" class="h-full w-full overflow-auto gradient-medical"><!-- Hero Header -->
-   <header class="relative z-10 text-center py-16 px-6">
-    <div class="max-w-4xl mx-auto">
-     <div class="floating inline-flex items-center justify-center w-24 h-24 rounded-3xl mb-6 shadow-2xl" style="background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);"><span class="text-6xl">🩺</span>
-     </div>
-     <h1 id="page-title" class="font-heading text-4xl md:text-6xl font-black mb-4 text-white drop-shadow-lg">Respeito e Ética na Saúde</h1>
-     <p id="subtitle-text" class="text-xl md:text-2xl italic font-medium text-teal-100 max-w-3xl mx-auto leading-relaxed">"Não sou vozinha, sou paciente. Minha autonomia é meu direito."</p>
-     <div class="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20"><span class="text-lg">📜</span> <span class="text-sm font-semibold">Lei 10.741/2003 - Estatuto do Idoso</span>
-     </div>
-    </div>
-   </header><!-- Interactive Cards -->
-   <main class="relative z-10 px-6 pb-16">
-    <div class="max-w-5xl mx-auto"><!-- Experimental Disclaimer on Main Page -->
-     <div class="max-w-4xl mx-auto px-6 mb-8">
-      <div class="bg-slate-100 border-2 border-dashed border-slate-300 p-6 rounded-2xl">
-       <div class="flex items-center gap-3 mb-2 text-slate-600"><span class="text-xl">🔬</span>
-        <h4 class="font-bold uppercase tracking-widest text-xs">Projeto Experimental em Saúde</h4>
-       </div>
-       <p class="text-sm text-slate-600 leading-relaxed">A <strong>Verena</strong> é uma assistente virtual em fase de desenvolvimento e testes. Este sistema integra projetos de <strong>Iniciação Científica</strong> vinculados a instituições de ensino superior e está em constante aprimoramento.</p>
-       <p class="mt-3 text-sm text-slate-600 italic"><strong>Importante:</strong> As interações nesta plataforma são monitoradas por pesquisadores da área da saúde para fins acadêmicos. Esta IA não substitui a consulta médica ou o aconselhamento profissional especializado.</p>
-      </div>
-     </div>
-     <div class="mb-8 text-center">
-      <p class="text-white/90 text-lg font-medium">👇 Clique nos cards para expandir e ver mais detalhes</p>
-     </div>
-     <div class="grid gap-6 md:grid-cols-2"><!-- Card 1: Identidade -->
-      <article class="card-interactive fade-in stagger-1 rounded-3xl p-6 shadow-xl" onclick="toggleCard(this)">
-       <div class="flex items-start gap-4">
-        <div class="icon-wrapper" style="background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);"><span>👤</span>
-        </div>
-        <div class="flex-1">
-         <div class="flex items-start justify-between mb-3">
-          <h3 class="font-heading text-2xl font-bold" style="color: #0f766e;">Identidade e Dignidade</h3>
-          <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #0d9488;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-         </div>
-         <p class="text-base leading-relaxed" style="color: #334155;">O idoso deve ser chamado pelo <strong>nome próprio</strong>. O uso de termos diminutivos configura "elderspeak".</p>
-         <div class="card-content mt-4">
-          <div class="border-t border-gray-200 pt-4 space-y-3">
-           <p class="text-sm leading-relaxed" style="color: #475569;"><strong>O que é elderspeak?</strong><br>
-             É uma forma de comunicação infantilizada que inclui termos como "mãezinha", "vovô", "querido". Estudos mostram que isso compromete a saúde mental e reduz a adesão ao tratamento.</p>
-           <div class="bg-teal-50 p-4 rounded-xl border-l-4 border-teal-500">
-            <p class="text-sm font-semibold" style="color: #0f766e;">✓ Correto: "Sr. João, como o senhor está se sentindo hoje?"<br>
-              ✗ Incorreto: "E aí vovô, como tá se sentindo?"</p>
-           </div><span class="badge" style="background: rgba(13, 148, 136, 0.15); color: #0d9488;"> 📚 Art. 10, § 2º do Estatuto do Idoso </span>
-          </div>
-         </div>
-        </div>
-       </div>
-      </article><!-- Card 2: Autonomia -->
-      <article class="card-interactive fade-in stagger-2 rounded-3xl p-6 shadow-xl" onclick="toggleCard(this)">
-       <div class="flex items-start gap-4">
-        <div class="icon-wrapper" style="background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);"><span>🧠</span>
-        </div>
-        <div class="flex-1">
-         <div class="flex items-start justify-between mb-3">
-          <h3 class="font-heading text-2xl font-bold" style="color: #0e7490;">Autonomia Decisória</h3>
-          <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #0891b2;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-         </div>
-         <p class="text-base leading-relaxed" style="color: #334155;">Paciente idoso com plenas faculdades tem o direito de decidir sobre seus tratamentos.</p>
-         <div class="card-content mt-4">
-          <div class="border-t border-gray-200 pt-4 space-y-3">
-           <p class="text-sm leading-relaxed" style="color: #475569;"><strong>Consentimento Informado:</strong><br>
-             O médico deve explicar diagnóstico, prognóstico, riscos e benefícios de forma clara, sem jargões médicos complexos. O idoso tem o direito de aceitar ou recusar tratamentos.</p>
-           <div class="bg-cyan-50 p-4 rounded-xl border-l-4 border-cyan-500">
-            <p class="text-sm font-semibold" style="color: #0e7490;">⚖️ O idoso NÃO perde sua capacidade legal apenas pela idade. A autonomia deve ser respeitada enquanto houver discernimento.</p>
-           </div><span class="badge" style="background: rgba(8, 145, 178, 0.15); color: #0891b2;"> ⚕️ Código de Ética Médica (Art. 31) </span>
-          </div>
-         </div>
-        </div>
-       </div>
-      </article><!-- Card 3: Acompanhante -->
-      <article class="card-interactive fade-in stagger-3 rounded-3xl p-6 shadow-xl" onclick="toggleCard(this)">
-       <div class="flex items-start gap-4">
-        <div class="icon-wrapper" style="background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);"><span>👥</span>
-        </div>
-        <div class="flex-1">
-         <div class="flex items-start justify-between mb-3">
-          <h3 class="font-heading text-2xl font-bold" style="color: #4338ca;">Acompanhante 24h</h3>
-          <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #4f46e5;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-         </div>
-         <p class="text-base leading-relaxed" style="color: #334155;">Direito à permanência integral de acompanhante em internações hospitalares.</p>
-         <div class="card-content mt-4">
-          <div class="border-t border-gray-200 pt-4 space-y-3">
-           <p class="text-sm leading-relaxed" style="color: #475569;"><strong>O que diz a lei:</strong><br>
-             A unidade de saúde é <strong>obrigada</strong> a viabilizar estrutura para que um acompanhante permaneça 24 horas junto ao idoso internado, seja em hospital público ou privado.</p>
-           <ul class="text-sm space-y-2" style="color: #475569;">
-            <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>Vale para UTI, enfermaria e observação</span></li>
-            <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>O hospital não pode cobrar pelo acompanhante</span></li>
-            <li class="flex items-start gap-2"><span class="text-indigo-600 font-bold">✓</span> <span>Deve fornecer alimentação e estrutura mínima</span></li>
-           </ul><span class="badge" style="background: rgba(79, 70, 229, 0.15); color: #4f46e5;"> 📋 Art. 16 do Estatuto do Idoso </span>
-          </div>
-         </div>
-        </div>
-       </div>
-      </article><!-- Card 4: Prioridade -->
-      <article class="card-interactive fade-in stagger-4 rounded-3xl p-6 shadow-xl" onclick="toggleCard(this)">
-       <div class="flex items-start gap-4">
-        <div class="icon-wrapper" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);"><span>⏱️</span>
-        </div>
-        <div class="flex-1">
-         <div class="flex items-start justify-between mb-3">
-          <h3 class="font-heading text-2xl font-bold" style="color: #6d28d9;">Atendimento Prioritário</h3>
-          <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #7c3aed;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-         </div>
-         <p class="text-base leading-relaxed" style="color: #334155;">Prioridade em todos os serviços de saúde, públicos e privados.</p>
-         <div class="card-content mt-4">
-          <div class="border-t border-gray-200 pt-4 space-y-3">
-           <p class="text-sm leading-relaxed" style="color: #475569;"><strong>Onde se aplica:</strong></p>
-           <div class="grid grid-cols-2 gap-3">
-            <div class="bg-purple-50 p-3 rounded-lg text-center">
-             <div class="text-2xl mb-1">
-              🏥
-             </div>
-             <div class="text-xs font-semibold" style="color: #6d28d9;">
-              Hospitais e UPAs
-             </div>
-            </div>
-            <div class="bg-purple-50 p-3 rounded-lg text-center">
-             <div class="text-2xl mb-1">
-              💊
-             </div>
-             <div class="text-xs font-semibold" style="color: #6d28d9;">
-              Farmácias
-             </div>
-            </div>
-            <div class="bg-purple-50 p-3 rounded-lg text-center">
-             <div class="text-2xl mb-1">
-              🔬
-             </div>
-             <div class="text-xs font-semibold" style="color: #6d28d9;">
-              Laboratórios
-             </div>
-            </div>
-            <div class="bg-purple-50 p-3 rounded-lg text-center">
-             <div class="text-2xl mb-1">
-              📋
-             </div>
-             <div class="text-xs font-semibold" style="color: #6d28d9;">
-              Agendamentos
-             </div>
-            </div>
-           </div><span class="badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;"> 🏥 Art. 15, § 4º do Estatuto do Idoso </span>
-          </div>
-         </div>
-        </div>
-       </div>
-      </article><!-- Card 5: Medicamentos -->
-      <article class="card-interactive fade-in stagger-5 rounded-3xl p-6 shadow-xl" onclick="toggleCard(this)">
-       <div class="flex items-start gap-4">
-        <div class="icon-wrapper" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);"><span>💊</span>
-        </div>
-        <div class="flex-1">
-         <div class="flex items-start justify-between mb-3">
-          <h3 class="font-heading text-2xl font-bold" style="color: #047857;">Acesso a Medicamentos</h3>
-          <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #059669;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-         </div>
-         <p class="text-base leading-relaxed" style="color: #334155;">Fornecimento gratuito de medicamentos e recursos para tratamento.</p>
-         <div class="card-content mt-4">
-          <div class="border-t border-gray-200 pt-4 space-y-3">
-           <p class="text-sm leading-relaxed" style="color: #475569;"><strong>O que está incluído:</strong></p>
-           <ul class="text-sm space-y-2" style="color: #475569;">
-            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">💊</span> <span><strong>Medicamentos de uso continuado</strong> (hipertensão, diabetes, etc.)</span></li>
-            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">🦴</span> <span><strong>Próteses e órteses</strong> (cadeiras de rodas, bengalas, aparelhos auditivos)</span></li>
-            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">🩺</span> <span><strong>Recursos para reabilitação</strong></span></li>
-           </ul>
-           <div class="bg-emerald-50 p-4 rounded-xl border-l-4 border-emerald-500">
-            <p class="text-sm font-semibold" style="color: #047857;">💡 Programa Farmácia Popular oferece medicamentos gratuitos ou com até 90% de desconto para idosos.</p>
-           </div><span class="badge" style="background: rgba(5, 150, 105, 0.15); color: #059669;"> 💉 Art. 15, § 2º do Estatuto do Idoso </span>
-          </div>
-         </div>
-        </div>
-       </div>
-      </article><!-- Card 6: Verena AI Assistant -->
-      <article class="card-interactive fade-in rounded-3xl p-6 shadow-xl md:col-span-2" style="animation-delay: 0.6s; background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);" onclick="toggleCard(this)">
-       <div class="flex items-start gap-4">
-        <div class="icon-wrapper" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); box-shadow: 0 8px 32px rgba(124, 58, 237, 0.3);"><span>🤖</span>
-        </div>
-        <div class="flex-1">
-         <div class="flex items-start justify-between mb-3">
-          <div>
-           <h3 class="font-heading text-2xl font-bold" style="color: #6d28d9;">Conheça a Verena</h3>
-           <p class="text-sm mt-1" style="color: #7c3aed;">Assistente Inteligente de Apoio ao Cuidador</p>
-          </div>
-          <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #7c3aed;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-         </div>
-         <p class="text-base leading-relaxed" style="color: #334155;">Uma assistente inteligente desenvolvida como <strong>PWA</strong> (instalação leve), focada em traduzir a complexidade do cuidado diário com idosos em orientações acessíveis e éticas.</p>
-         <div class="card-content mt-4">
-          <div class="border-t border-purple-200 pt-4 space-y-4"><!-- Technical Highlights -->
-           <div>
-            <h4 class="font-bold text-lg mb-3 flex items-center gap-2" style="color: #6d28d9;"><span>⚡</span> <span>Destaques Técnicos</span></h4>
-            <div class="grid md:grid-cols-2 gap-3"><!-- Vision AI -->
-             <div class="bg-white p-4 rounded-xl border-2 border-purple-100 hover:border-purple-300 transition-colors">
-              <div class="flex items-center gap-2 mb-2"><span class="text-2xl">👁️</span>
-               <h5 class="font-bold text-sm" style="color: #6d28d9;">Visão Computacional</h5>
-              </div>
-              <p class="text-xs leading-relaxed" style="color: #475569;">Leitura de exames, bulas e análise de riscos domiciliares via foto</p>
-             </div><!-- Voice Interface -->
-             <div class="bg-white p-4 rounded-xl border-2 border-purple-100 hover:border-purple-300 transition-colors">
-              <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🎤</span>
-               <h5 class="font-bold text-sm" style="color: #6d28d9;">Interface Inclusiva</h5>
-              </div>
-              <p class="text-xs leading-relaxed" style="color: #475569;">Comandos por voz (STT) e leitura de respostas (TTS)</p>
-             </div><!-- Privacy -->
-             <div class="bg-white p-4 rounded-xl border-2 border-purple-100 hover:border-purple-300 transition-colors">
-              <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🔒</span>
-               <h5 class="font-bold text-sm" style="color: #6d28d9;">Privacidade Total</h5>
-              </div>
-              <p class="text-xs leading-relaxed" style="color: #475569;">Arquitetura Stateless em conformidade rigorosa com a LGPD</p>
-             </div><!-- Ethics -->
-             <div class="bg-white p-4 rounded-xl border-2 border-purple-100 hover:border-purple-300 transition-colors">
-              <div class="flex items-center gap-2 mb-2"><span class="text-2xl">⚕️</span>
-               <h5 class="font-bold text-sm" style="color: #6d28d9;">Protocolo Ético</h5>
-              </div>
-              <p class="text-xs leading-relaxed" style="color: #475569;">Combate ao idadismo e priorização de protocolos de emergência (SAMU 192)</p>
-             </div>
-            </div>
-           </div><!-- Key Features -->
-           <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-4 rounded-xl border border-purple-200">
-            <h4 class="font-bold text-sm mb-3 flex items-center gap-2" style="color: #6d28d9;"><span>✨</span> <span>Funcionalidades Principais</span></h4>
-            <ul class="text-xs space-y-2" style="color: #5b21b6;">
-             <li class="flex items-start gap-2"><span class="flex-shrink-0">📸</span> <span><strong>Análise de Imagens:</strong> Tire fotos de exames médicos ou bulas para receber explicações em linguagem simples</span></li>
-             <li class="flex items-start gap-2"><span class="flex-shrink-0">🏠</span> <span><strong>Avaliação de Riscos:</strong> Identifique perigos domésticos através de fotos do ambiente</span></li>
-             <li class="flex items-start gap-2"><span class="flex-shrink-0">💬</span> <span><strong>Chat Interativo:</strong> Tire dúvidas sobre cuidados, direitos e procedimentos médicos</span></li>
-             <li class="flex items-start gap-2"><span class="flex-shrink-0">🚨</span> <span><strong>Emergências:</strong> Orientação imediata para situações críticas com priorização do SAMU 192</span></li>
-            </ul>
-           </div><!-- CTA Button -->
-           <div class="text-center pt-2"><a href="https://projeto-verena.onrender.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-6 py-3 rounded-full text-white font-bold shadow-lg hover:shadow-xl transition-all hover:scale-105" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);"> <span>🤖</span> <span>Conversar com a Verena</span>
-             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-             </svg></a>
-           </div>
-           <div class="flex flex-wrap gap-2 justify-center"><span class="badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;"> 📱 PWA - Instale no seu telemóvel </span> <span class="badge" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;"> 🔬 Projeto de Iniciação Científica </span>
-           </div>
-          </div>
-         </div>
-        </div>
-       </div>
-      </article><!-- Card 7: FAQ - Perguntas Frequentes -->
-      <article class="card-interactive fade-in rounded-3xl p-6 shadow-xl md:col-span-2 stagger-7" style="background: linear-gradient(135deg, rgba(255, 165, 0, 0.05) 0%, rgba(255, 140, 0, 0.05) 100%);" onclick="toggleCard(this)">
-       <div class="flex items-start gap-4">
-        <div class="icon-wrapper" style="background: linear-gradient(135deg, #f59e0b 0%, #fb923c 100%); box-shadow: 0 8px 32px rgba(245, 158, 11, 0.3);"><span>❓</span>
-        </div>
-        <div class="flex-1">
-         <div class="flex items-start justify-between mb-3">
-          <div>
-           <h3 class="font-heading text-2xl font-bold" style="color: #c2410c;">Perguntas Frequentes (FAQ)</h3>
-           <p class="text-sm mt-1" style="color: #ea580c;">Dúvidas sobre o Projeto Verena</p>
-          </div>
-          <svg class="expand-indicator w-6 h-6 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-         </div>
-         <p class="text-base leading-relaxed" style="color: #334155;">Respostas para as perguntas mais comuns de cuidadores, familiares e da comunidade académica sobre a Verena.</p>
-         <div class="card-content mt-4">
-          <div class="border-t border-orange-200 pt-4 space-y-4"><!-- Academic Section -->
-           <div class="bg-white rounded-xl p-5 border-2 border-orange-100">
-            <h4 class="font-bold text-lg mb-4 flex items-center gap-2" style="color: #c2410c;"><span>🎓</span> <span>Para a Comunidade Académica e Alunos</span></h4><!-- FAQ Item 1 -->
-            <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)">
-             <div class="flex items-start justify-between gap-3">
-              <div class="flex-1">
-               <h5 class="font-semibold text-sm mb-1" style="color: #c2410c;">1. O projeto é um chatbot comum ou uma IA de Segunda Geração?</h5>
-               <div class="faq-answer text-xs leading-relaxed" style="color: #475569;">
-                <p class="font-semibold mb-2" style="color: #ea580c;">É uma IA de Segunda Geração.</p>
-                <p>Diferente de sistemas baseados apenas em regras ou texto, a Verena utiliza <strong>multimodalidade nativa</strong> (processa imagem e voz em tempo real) e possui uma camada de <strong>instruções de sistema (System Instructions)</strong> que moldam seu comportamento ético e técnico, sem depender apenas do input do utilizador.</p>
-               </div>
-              </div>
-              <svg class="faq-icon w-5 h-5 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-             </div>
-            </div><!-- FAQ Item 2 -->
-            <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)">
-             <div class="flex items-start justify-between gap-3">
-              <div class="flex-1">
-               <h5 class="font-semibold text-sm mb-1" style="color: #c2410c;">2. Como é garantida a privacidade dos dados de saúde?</h5>
-               <div class="faq-answer text-xs leading-relaxed" style="color: #475569;">
-                <p>Utilizamos uma <strong>Arquitetura Stateless via API</strong>. Isso significa que os dados processados não são armazenados em bancos de dados persistentes nem utilizados para treinamento do modelo. Ao fechar a sessão, a informação é descartada, garantindo conformidade com a <strong>LGPD</strong>.</p>
-               </div>
-              </div>
-              <svg class="faq-icon w-5 h-5 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-             </div>
-            </div><!-- FAQ Item 3 -->
-            <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)">
-             <div class="flex items-start justify-between gap-3">
-              <div class="flex-1">
-               <h5 class="font-semibold text-sm mb-1" style="color: #c2410c;">3. Qual a vantagem de usar o Gemini 2.0 Flash em vez de outros modelos?</h5>
-               <div class="faq-answer text-xs leading-relaxed" style="color: #475569;">
-                <p class="font-semibold mb-2" style="color: #ea580c;">A latência.</p>
-                <p>Em contextos de cuidado e saúde, a resposta precisa ser quase instantânea. O modelo <strong>Flash</strong> oferece o equilíbrio perfeito entre raciocínio complexo e <strong>baixa latência (inferior a 2 segundos)</strong>.</p>
-               </div>
-              </div>
-              <svg class="faq-icon w-5 h-5 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-             </div>
-            </div>
-           </div><!-- Caregivers Section -->
-           <div class="bg-white rounded-xl p-5 border-2 border-orange-100">
-            <h4 class="font-bold text-lg mb-4 flex items-center gap-2" style="color: #c2410c;"><span>🏥</span> <span>Para Cuidadores e Familiares</span></h4><!-- FAQ Item 4 -->
-            <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)">
-             <div class="flex items-start justify-between gap-3">
-              <div class="flex-1">
-               <h5 class="font-semibold text-sm mb-1" style="color: #c2410c;">1. A Verena substitui o médico ou o enfermeiro?</h5>
-               <div class="faq-answer text-xs leading-relaxed" style="color: #475569;">
-                <p class="font-semibold mb-2" style="color: #ea580c;">Nunca.</p>
-                <p>A Verena é uma <strong>ferramenta de suporte e educação</strong>. Ela ajuda a entender termos técnicos de bulas e exames ou a organizar a rotina, mas sempre orienta o utilizador a procurar o profissional de saúde responsável.</p>
-               </div>
-              </div>
-              <svg class="faq-icon w-5 h-5 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-             </div>
-            </div><!-- FAQ Item 5 -->
-            <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)">
-             <div class="flex items-start justify-between gap-3">
-              <div class="flex-1">
-               <h5 class="font-semibold text-sm mb-1" style="color: #c2410c;">2. Eu preciso pagar ou descarregar a aplicação pela loja?</h5>
-               <div class="faq-answer text-xs leading-relaxed" style="color: #475569;">
-                <p class="font-semibold mb-2" style="color: #ea580c;">Não.</p>
-                <p>A Verena é um <strong>PWA (Progressive Web App)</strong>. Você acede pelo link, adiciona à tela inicial do seu telemóvel e ela funciona como uma aplicação, mas sem ocupar espaço na memória e de forma totalmente gratuita.</p>
-               </div>
-              </div>
-              <svg class="faq-icon w-5 h-5 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-             </div>
-            </div><!-- FAQ Item 6 -->
-            <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)">
-             <div class="flex items-start justify-between gap-3">
-              <div class="flex-1">
-               <h5 class="font-semibold text-sm mb-1" style="color: #c2410c;">3. O que acontece se eu enviar uma foto de uma emergência?</h5>
-               <div class="faq-answer text-xs leading-relaxed" style="color: #475569;">
-                <p>A Verena possui um <strong>Filtro de Emergência</strong>. Se ela identificar sinais de perigo imediato (como uma queda grave ou desmaio nas imagens/relatos), ela interromperá o fluxo comum para destacar o contacto do <strong>SAMU (192)</strong>.</p>
-               </div>
-              </div>
-              <svg class="faq-icon w-5 h-5 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-             </div>
-            </div><!-- FAQ Item 7 -->
-            <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)">
-             <div class="flex items-start justify-between gap-3">
-              <div class="flex-1">
-               <h5 class="font-semibold text-sm mb-1" style="color: #c2410c;">4. Ela entende termos jurídicos sobre os idosos?</h5>
-               <div class="faq-answer text-xs leading-relaxed" style="color: #475569;">
-                <p class="font-semibold mb-2" style="color: #ea580c;">Sim.</p>
-                <p>O sistema integra diretrizes do <strong>Estatuto da Pessoa Idosa</strong>, ajudando o cuidador a entender direitos fundamentais, como prioridades e deveres de assistência, de forma simples e direta.</p>
-               </div>
-              </div>
-              <svg class="faq-icon w-5 h-5 flex-shrink-0" style="color: #f59e0b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-             </div>
-            </div>
-           </div><!-- CTA -->
-           <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl p-4 border-2 border-orange-200 text-center">
-            <p class="text-sm font-semibold mb-3" style="color: #c2410c;">💬 Tem mais perguntas? Converse diretamente com a Verena!</p><a href="https://projeto-verena.onrender.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2 rounded-full text-white font-bold text-sm shadow-md hover:shadow-lg transition-all hover:scale-105" style="background: linear-gradient(135deg, #f59e0b 0%, #fb923c 100%);"> <span>🤖</span> <span>Falar com a Verena</span>
-             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-             </svg></a>
-           </div>
-          </div>
-         </div>
-        </div>
-       </div>
-      </article>
-     </div><!-- Project Evolution Timeline -->
-     <section class="max-w-4xl mx-auto px-6 py-10 bg-white rounded-3xl shadow-sm my-10 border border-slate-100 fade-in" style="animation-delay: 0.8s;">
-      <div class="flex items-center gap-3 mb-6"><span class="text-2xl">📈</span>
-       <h2 class="font-heading text-2xl text-slate-800">Evolução do Projeto e Descobertas</h2>
-      </div>
-      <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
-       <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-teal-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-         <svg class="fill-current" viewbox="0 0 12 12" width="12" height="12">
-          <path d="M12 4L4.92 11H4.11L1 7.24l1.27-1.12 2.12 2.48L10.59 3.5z" />
-         </svg>
-        </div>
-        <div class="w-[calc(100%-4rem)] md:w-[45%] p-4 rounded border border-slate-200 bg-slate-50 shadow"><time class="font-bold text-teal-600 text-xs">JAN 2026</time>
-         <div class="text-slate-800 font-semibold text-sm">
-          Lançamento do Protótipo Alfa
-         </div>
-         <p class="text-xs text-slate-600 mt-1">Integração das diretrizes do Ministério da Saúde e estruturação da base ética sobre o Estatuto do Idoso.</p>
-        </div>
-       </div>
-       <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2"><span class="text-[10px]">PND</span>
-        </div>
-        <div class="w-[calc(100%-4rem)] md:w-[45%] p-4 rounded border border-dashed border-slate-300 bg-white shadow-sm opacity-60"><time class="font-bold text-slate-400 text-xs text-uppercase">MARÇO 2026</time>
-         <div class="text-slate-500 font-semibold text-sm">
-          Início da Iniciação Científica
-         </div>
-         <p class="text-xs text-slate-400 mt-1">Início da fase de testes assistidos e coleta de dados sobre a eficácia da comunicação humanizada da IA.</p>
-        </div>
-       </div>
-      </div>
-      <div class="mt-8 text-center">
-       <p class="text-xs text-slate-400">Resultados e resumos de artigos publicados no PubMed serão listados aqui periodicamente.</p>
-      </div>
-     </section><!-- Scientific Evidence Section -->
-     <section class="mt-12 space-y-6 px-4 fade-in" style="animation-delay: 0.9s;">
-      <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-2xl shadow-lg">
-       <h3 class="font-heading text-2xl text-blue-900 flex items-center gap-3 mb-4"><span class="text-3xl">🇧🇷</span> <span>Diretrizes do Ministério da Saúde</span></h3>
-       <ul class="text-base text-blue-800 space-y-3 leading-relaxed">
-        <li class="flex items-start gap-3"><span class="text-xl flex-shrink-0">🚶</span>
-         <div><strong>Prevenção de Quedas:</strong> Manter ambientes iluminados, remover tapetes soltos e instalar corrimãos. Quedas são a principal causa de perda de autonomia.
-         </div></li>
-        <li class="flex items-start gap-3"><span class="text-xl flex-shrink-0">💊</span>
-         <div><strong>Polifarmácia:</strong> Revisão periódica da lista de medicamentos com a equipe de saúde para evitar interações perigosas.
-         </div></li>
-        <li class="flex items-start gap-3"><span class="text-xl flex-shrink-0">💉</span>
-         <div><strong>Imunização:</strong> Manutenção rigorosa do calendário vacinal (Gripe, Pneumonia, Tétano) como barreira de saúde pública.
-         </div></li>
-       </ul>
-      </div>
-      <div class="bg-purple-50 border-l-4 border-purple-600 p-6 rounded-r-2xl shadow-lg">
-       <h3 class="font-heading text-2xl text-purple-900 flex items-center gap-3 mb-4"><span class="text-3xl">🔬</span> <span>Evidências PubMed (Últimos 5 Anos)</span></h3>
-       <div class="text-base text-purple-800 space-y-4 leading-relaxed">
-        <div>
-         <p class="font-semibold mb-2 flex items-start gap-2"><span>📊</span> <span>Impacto do Meio Social:</span></p>
-         <p class="ml-7">Estudos recentes (2022-2024) demonstram que idosos com <strong>fortes laços de vizinhança</strong> e confiança comunitária apresentam menores níveis de ansiedade e maior "Bem-Estar Subjetivo" (SWB).</p>
-        </div>
-        <div>
-         <p class="font-semibold mb-2 flex items-start gap-2"><span>👨‍👩‍👧‍👦</span> <span>O Papel da Familia:</span></p>
-         <p class="ml-7">Pesquisas indicam que a coabitacao familiar correlaciona-se positivamente com a saude autorreferida e felicidade, desde que a autonomia do idoso seja preservada. O isolamento social e hoje classificado como um fator de risco tao grave quanto o tabagismo.</p>
-        </div>
-        <div class="pt-3 flex flex-wrap gap-2 ml-7"><span class="text-xs bg-purple-200 px-3 py-1 rounded-full font-mono font-semibold">PMID: 36629110</span> <span class="text-xs bg-purple-200 px-3 py-1 rounded-full font-mono font-semibold">PMID: 34277332</span>
-        </div>
-       </div>
-      </div>
-     </section>
-    </div>
-   </main><!-- Footer -->
-   <footer class="relative z-10 text-center py-12 px-6 mt-12 bg-black/20 backdrop-blur-md border-t border-white/10">
-    <div class="max-w-4xl mx-auto">
-     <p class="text-base font-semibold mb-3 text-white">📖 Informações baseadas no Estatuto do Idoso (Lei 10.741/2003)</p>
-     <p class="text-sm text-teal-200 italic">Respeito, dignidade e autonomia não são favores — são direitos garantidos por lei</p>
-    </div>
-   </footer><!-- Floating AI Assistant Button --> <button id="ai-assistant-btn" class="fixed bottom-6 right-6 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-3xl transition-all duration-300 hover:scale-110 z-50" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);" onclick="toggleAiModal()" aria-label="Abrir informações da Verena"> <span class="floating">🤖</span> </button> <!-- AI Assistant Modal -->
-   <div id="ai-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4" onclick="closeModalOnBackdrop(event)">
-    <div class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-auto relative" onclick="event.stopPropagation()"><button onclick="toggleAiModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors" aria-label="Fechar">
-      <svg class="w-6 h-6" style="color: #475569;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg></button>
-     <div class="p-8"><!-- Header -->
-      <div class="text-center mb-6">
-       <div class="inline-flex items-center justify-center w-20 h-20 rounded-full mb-4 shadow-xl" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);"><span class="text-5xl">🤖</span>
-       </div>
-       <h2 class="font-heading text-3xl font-bold mb-2" style="color: #6d28d9;">Conheça a Verena</h2>
-       <p class="text-lg" style="color: #475569;">Sua assistente virtual para direitos do idoso</p>
-      </div><!-- Experimental Disclaimer -->
-      <div class="bg-slate-100 border-2 border-dashed border-slate-300 p-6 rounded-2xl mb-6">
-       <div class="flex items-center gap-3 mb-3 text-slate-600"><span class="text-2xl">🔬</span>
-        <h4 class="font-bold uppercase tracking-widest text-sm">Projeto Experimental em Saúde</h4>
-       </div>
-       <p class="text-sm text-slate-600 leading-relaxed mb-3">A <strong>Verena</strong> é uma assistente virtual em fase de desenvolvimento e testes. Este sistema integra projetos de <strong>Iniciação Científica</strong> vinculados a instituições de ensino superior e está em constante aprimoramento.</p>
-       <p class="text-sm text-slate-600 italic"><strong>Importante:</strong> As interações nesta plataforma são monitoradas por pesquisadores da área da saúde para fins acadêmicos. Esta IA não substitui a consulta médica ou o aconselhamento profissional especializado.</p>
-      </div><!-- Link Section -->
-      <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 mb-6 border-2 border-purple-200">
-       <h3 class="font-bold text-xl mb-3 flex items-center gap-2" style="color: #6d28d9;"><span>🌐</span> <span>Acesse a Verena Online</span></h3><a href="https://projeto-verena.onrender.com/" target="_blank" rel="noopener noreferrer" class="block bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow mb-3">
-        <div class="flex items-center justify-between">
-         <div class="flex-1">
-          <p class="font-semibold text-lg" style="color: #7c3aed;">projeto-verena.onrender.com</p>
-          <p class="text-sm mt-1" style="color: #64748b;">Clique para abrir no navegador</p>
-         </div>
-         <svg class="w-6 h-6 flex-shrink-0" style="color: #7c3aed;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-         </svg>
-        </div></a>
-       <p class="text-sm" style="color: #6d28d9;">💬 Chat em tempo real • 📚 Base de conhecimento completa • 🔒 100% seguro</p>
-      </div><!-- Mobile Instructions -->
-      <div class="space-y-4">
-       <h3 class="font-bold text-xl flex items-center gap-2" style="color: #1e293b;"><span>📱</span> <span>Como instalar no telemóvel</span></h3>
-       <p class="text-sm leading-relaxed" style="color: #475569;">Tenha a Verena sempre ao alcance! Adicione como um ícone na tela inicial do seu telemóvel:</p><!-- Android Instructions -->
-       <div class="bg-green-50 rounded-xl p-5 border-l-4 border-green-500">
-        <div class="flex items-start gap-3">
-         <div class="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
-          1
-         </div>
-         <div class="flex-1">
-          <h4 class="font-bold text-lg mb-2" style="color: #166534;">📱 Android (Chrome)</h4>
-          <ol class="space-y-2 text-sm" style="color: #15803d;">
-           <li class="flex items-start gap-2"><span class="font-bold">1.</span> <span>Abra o link acima no <strong>Chrome</strong></span></li>
-           <li class="flex items-start gap-2"><span class="font-bold">2.</span> <span>Clique nos <strong>três pontinhos (⋮)</strong> no canto superior direito</span></li>
-           <li class="flex items-start gap-2"><span class="font-bold">3.</span> <span>Selecione <strong>"Instalar aplicação"</strong> ou <strong>"Adicionar ao ecrã principal"</strong></span></li>
-          </ol>
-         </div>
-        </div>
-       </div><!-- iPhone Instructions -->
-       <div class="bg-blue-50 rounded-xl p-5 border-l-4 border-blue-500">
-        <div class="flex items-start gap-3">
-         <div class="flex-shrink-0 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-          2
-         </div>
-         <div class="flex-1">
-          <h4 class="font-bold text-lg mb-2" style="color: #1e40af;">📱 iPhone (Safari)</h4>
-          <ol class="space-y-2 text-sm" style="color: #1e3a8a;">
-           <li class="flex items-start gap-2"><span class="font-bold">1.</span> <span>Abra o link acima no <strong>Safari</strong></span></li>
-           <li class="flex items-start gap-2"><span class="font-bold">2.</span> <span>Clique no <strong>botão de partilha</strong> (quadrado com seta ↑)</span></li>
-           <li class="flex items-start gap-2"><span class="font-bold">3.</span> <span>Selecione <strong>"Adicionar ao ecrã inicial"</strong></span></li>
-          </ol>
-         </div>
-        </div>
-       </div><!-- Benefits -->
-       <div class="bg-purple-50 rounded-xl p-5 border-2 border-purple-200">
-        <h4 class="font-bold text-lg mb-3 flex items-center gap-2" style="color: #6d28d9;"><span>✨</span> <span>Vantagens da Verena</span></h4>
-        <ul class="space-y-2 text-sm" style="color: #5b21b6;">
-         <li class="flex items-start gap-2"><span>🎯</span> <span>Acesso rápido a informações sobre direitos do idoso</span></li>
-         <li class="flex items-start gap-2"><span>💬</span> <span>Chat interativo para tirar dúvidas em tempo real</span></li>
-         <li class="flex items-start gap-2"><span>🏥</span> <span>Ideal para usar no hospital ou durante consultas</span></li>
-         <li class="flex items-start gap-2"><span>📱</span> <span>Funciona como uma aplicação no seu telemóvel</span></li>
-        </ul>
-       </div>
-      </div><!-- CTA Button -->
-      <div class="mt-6 text-center"><a href="https://projeto-verena.onrender.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);"> <span>🤖</span> <span>Conversar com a Verena Agora</span>
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-        </svg></a>
-      </div>
-     </div>
-    </div>
-   </div>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+
+<body class="min-h-screen font-[Inter] text-slate-100">
+  <!-- Background -->
+  <div class="bg-wrap">
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-grid"></div>
   </div>
-  <script>
-        const defaultConfig = {
-            page_title: 'Respeito e Ética na Saúde',
-            subtitle_text: '"Não sou vozinha, sou paciente. Minha autonomia é meu direito."',
-            background_color: '#0f172a',
-            primary_color: '#0d9488',
-            text_color: '#334155'
-        };
 
-        let config = { ...defaultConfig };
+  <!-- Header / Navbar -->
+  <header class="relative z-10">
+    <nav class="mx-auto max-w-6xl px-4 py-5 flex items-center justify-between">
+      <a href="./index.html" class="flex items-center gap-3 group">
+        <!-- Troque depois por seu logo em assets/img/logo -->
+        <div class="w-11 h-11 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center shadow-lg">
+          <span class="text-2xl"><img 
+  src="./assets/img/logo/verena-logo.png"
+  alt="Logo Verena"
+  class="w-11 h-11 object-contain"
+/></span>
+        </div>
+        <div class="leading-tight">
+          <div class="font-extrabold tracking-tight text-white text-lg group-hover:opacity-90">VERENA</div>
+          <div class="text-xs text-white/70 -mt-0.5">saúde reprodutiva • envelhecimento ativo</div>
+        </div>
+      </a>
 
-        function toggleCard(card) {
-            const isExpanded = card.classList.contains('expanded');
-            
-            document.querySelectorAll('.card-interactive').forEach(c => {
-                if (c !== card) {
-                    c.classList.remove('expanded');
-                }
-            });
-            
-            if (isExpanded) {
-                card.classList.remove('expanded');
-            } else {
-                card.classList.add('expanded');
-                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-        }
+      <div class="hidden md:flex items-center gap-2">
+        <a class="navlink" href="./pages/sobre.html">Sobre</a>
+        <a class="navlink" href="./pages/bases.html">Bases</a>
+        <a class="navlink" href="./pages/privacidade.html">Privacidade</a>
+        <a class="btn-primary" href="#cards">Explorar</a>
+      </div>
 
-        function toggleFaq(faqItem) {
-            const isActive = faqItem.classList.contains('active');
-            
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            if (!isActive) {
-                faqItem.classList.add('active');
-            }
-        }
+      <button id="menuBtn" class="md:hidden btn-icon" aria-label="Abrir menu">
+        ☰
+      </button>
+    </nav>
 
-        function toggleAiModal() {
-            const modal = document.getElementById('ai-modal');
-            if (modal.classList.contains('hidden')) {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                document.body.style.overflow = 'hidden';
-            } else {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = '';
-            }
-        }
+    <!-- Menu mobile -->
+    <div id="mobileMenu" class="md:hidden hidden mx-auto max-w-6xl px-4 pb-4">
+      <div class="card p-3 flex flex-col gap-2">
+        <a class="navlink" href="./pages/sobre.html">Sobre</a>
+        <a class="navlink" href="./pages/bases.html">Bases</a>
+        <a class="navlink" href="./pages/privacidade.html">Privacidade</a>
+        <a class="btn-primary text-center" href="#cards">Explorar</a>
+      </div>
+    </div>
+  </header>
 
-        function closeModalOnBackdrop(event) {
-            if (event.target.id === 'ai-modal') {
-                toggleAiModal();
-            }
-        }
+  <!-- Hero -->
+  <main class="relative z-10">
+    <section class="mx-auto max-w-6xl px-4 pt-8 pb-10">
+<!-- Banner principal -->
+<section class="mx-auto max-w-6xl px-4 pt-6">
+  <div class="relative overflow-hidden rounded-3xl shadow-2xl border border-white/10">
+    <img
+      src="./assets/img/banners/idosos-ativos.png"
+      alt="Idosos ativos, saúde reprodutiva e envelhecimento saudável"
+      class="w-full h-[320px] md:h-[420px] object-cover"
+    />
 
-        async function onConfigChange(newConfig) {
-            const titleEl = document.getElementById('page-title');
-            const subtitleEl = document.getElementById('subtitle-text');
-            
-            if (titleEl) {
-                titleEl.textContent = newConfig.page_title || defaultConfig.page_title;
-            }
-            if (subtitleEl) {
-                subtitleEl.textContent = newConfig.subtitle_text || defaultConfig.subtitle_text;
-            }
-        }
+    <!-- Overlay com texto -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent flex items-center">
+      <div class="p-6 md:p-10 max-w-xl">
+        <h2 class="text-2xl md:text-4xl font-extrabold text-white">
+          Saúde reprodutiva como base do envelhecimento saudável
+        </h2>
+        <p class="mt-3 text-white/80 text-sm md:text-base leading-relaxed">
+          Educação, ciência e legislação integradas para promover autonomia,
+          bem-estar e envelhecimento ativo.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+      <div class="grid lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/10 border border-white/15">
+            <span>🔬</span>
+            <span>Base científica + diretrizes oficiais + linguagem acessível</span>
+          </div>
 
-        function mapToCapabilities(cfg) {
-            return {
-                recolorables: [
-                    {
-                        get: () => cfg.background_color || defaultConfig.background_color,
-                        set: (value) => {
-                            cfg.background_color = value;
-                            if (window.elementSdk) {
-                                window.elementSdk.setConfig({ background_color: value });
-                            }
-                        }
-                    },
-                    {
-                        get: () => cfg.primary_color || defaultConfig.primary_color,
-                        set: (value) => {
-                            cfg.primary_color = value;
-                            if (window.elementSdk) {
-                                window.elementSdk.setConfig({ primary_color: value });
-                            }
-                        }
-                    },
-                    {
-                        get: () => cfg.text_color || defaultConfig.text_color,
-                        set: (value) => {
-                            cfg.text_color = value;
-                            if (window.elementSdk) {
-                                window.elementSdk.setConfig({ text_color: value });
-                            }
-                        }
-                    }
-                ],
-                borderables: [],
-                fontEditable: undefined,
-                fontSizeable: undefined
-            };
-        }
+          <h1 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+            Saúde reprodutiva como <span class="text-white/80">eixo central</span> para entender o corpo inteiro
+          </h1>
 
-        function mapToEditPanelValues(cfg) {
-            return new Map([
-                ['page_title', cfg.page_title || defaultConfig.page_title],
-                ['subtitle_text', cfg.subtitle_text || defaultConfig.subtitle_text]
-            ]);
-        }
+          <p class="mt-4 text-white/80 leading-relaxed">
+            A Verena organiza informações educativas sobre <strong>saúde reprodutiva no envelhecimento</strong>
+            e suas conexões com outros sistemas (cérebro, coração, ossos, metabolismo e imunidade),
+            alinhando conteúdo com <strong>Ministério da Saúde, Anvisa</strong> e <strong>legislação brasileira</strong>.
+          </p>
 
-        if (window.elementSdk) {
-            window.elementSdk.init({
-                defaultConfig,
-                onConfigChange,
-                mapToCapabilities,
-                mapToEditPanelValues
-            });
-            config = window.elementSdk.config || config;
-        }
-        
-        onConfigChange(config);
-    </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c482b1ec08b02d0',t:'MTc2OTUxNjA1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a href="#cards" class="btn-primary">Ver os cards interativos</a>
+            <a href="#rodape" class="btn-secondary">Avisos importantes</a>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="pill"><img 
+  src="./assets/img/logo/verena-logo.png"
+  alt="Logo Verena"
+  class="w-11 h-11 object-contain"
+/> Saúde Reprodutiva</span>
+            <span class="pill">🧠 Sistemas integrados</span>
+            <span class="pill">📚 Educação</span>
+            <span class="pill">⚖️ Leis e direitos</span>
+            <span class="pill">🚶 Envelhecimento ativo</span>
+          </div>
+        </div>
+
+        <!-- Painel lateral (visual) -->
+        <div class="card p-6">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500/90 to-rose-600/90 flex items-center justify-center shadow-xl">
+                <span class="text-2xl"><img 
+  src="./assets/img/logo/verena-logo.png"
+  alt="Logo Verena"
+  class="w-11 h-11 object-contain"
+/></span>
+              </div>
+              <div>
+                <div class="font-bold text-white">Verena</div>
+                <div class="text-sm text-white/70">educativa • segura • integrada</div>
+              </div>
+            </div>
+            <span class="text-xs text-white/60">v0.1 (site)</span>
+          </div>
+
+          <div class="mt-5 grid grid-cols-2 gap-3">
+            <div class="mini">
+              <div class="mini-emoji">♀️</div>
+              <div class="mini-title">Feminino</div>
+              <div class="mini-sub">ciclos • menopausa • bem-estar</div>
+            </div>
+            <div class="mini">
+              <div class="mini-emoji">♂️</div>
+              <div class="mini-title">Masculino</div>
+              <div class="mini-sub">declínio androgênico • saúde global</div>
+            </div>
+            <div class="mini">
+              <div class="mini-emoji">🔗</div>
+              <div class="mini-title">Integração</div>
+              <div class="mini-sub">impactos em múltiplos sistemas</div>
+            </div>
+            <div class="mini">
+              <div class="mini-emoji">⚖️</div>
+              <div class="mini-title">Legal</div>
+              <div class="mini-sub">orientação conforme normas</div>
+            </div>
+          </div>
+
+          <div class="mt-5 text-xs text-white/60 leading-relaxed">
+            * Conteúdo educativo. Não substitui atendimento profissional.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards interativos -->
+    <section id="cards" class="mx-auto max-w-6xl px-4 pb-16">
+      <div class="flex items-end justify-between gap-4 mb-6">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-white">Cards interativos (clique para abrir)</h2>
+          <p class="text-white/70 mt-1">As informações ficam “ocultas” e aparecem ao tocar/clicar.</p>
+        </div>
+        <button id="expandAll" class="btn-secondary hidden sm:inline-flex">Abrir tudo</button>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <!-- Card 1 -->
+        <article class="card interactive" data-accordion>
+          <button class="card-head" type="button">
+            <div class="flex items-center gap-3">
+              <div class="badgeIcon"><img 
+  src="./assets/img/logo/verena-logo.png"
+  alt="Logo Verena"
+  class="w-11 h-11 object-contain"
+/></div>
+              <div>
+                <div class="card-title">Eixo central: Saúde Reprodutiva</div>
+                <div class="card-sub">Por que ela é o “ponto de partida”</div>
+              </div>
+            </div>
+            <span class="chev">⌄</span>
+          </button>
+          <div class="card-body">
+            <p class="text-white/80 leading-relaxed">
+              A saúde reprodutiva no envelhecimento funciona como um <strong>centro regulador</strong> porque
+              envolve mudanças hormonais e neuroendócrinas que repercutem no corpo todo.
+              Por isso, a Verena parte desse eixo para explicar temas de outros sistemas de forma integrada.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card interactive" data-accordion>
+          <button class="card-head" type="button">
+            <div class="flex items-center gap-3">
+              <div class="badgeIcon">🔗</div>
+              <div>
+                <div class="card-title">Integração dos sistemas do corpo</div>
+                <div class="card-sub">cérebro • coração • ossos • metabolismo • imunidade</div>
+              </div>
+            </div>
+            <span class="chev">⌄</span>
+          </button>
+          <div class="card-body">
+            <ul class="list-disc pl-5 space-y-2 text-white/80">
+              <li><strong>Neuro:</strong> humor, memória, sono e bem-estar.</li>
+              <li><strong>Cardio:</strong> risco cardiovascular e saúde endotelial.</li>
+              <li><strong>Ósseo/muscular:</strong> osteoporose, sarcopenia e autonomia.</li>
+              <li><strong>Metabólico:</strong> gordura corporal, glicemia e energia.</li>
+              <li><strong>Imunidade:</strong> inflamação crônica e resposta a infecções.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card interactive" data-accordion>
+          <button class="card-head" type="button">
+            <div class="flex items-center gap-3">
+              <div class="badgeIcon">📚</div>
+              <div>
+                <div class="card-title">Educação em saúde</div>
+                <div class="card-sub">linguagem clara + foco em autocuidado</div>
+              </div>
+            </div>
+            <span class="chev">⌄</span>
+          </button>
+          <div class="card-body">
+            <p class="text-white/80 leading-relaxed">
+              A Verena foi pensada para <strong>explicar sem “mediquês”</strong>, ajudando o usuário a entender
+              exames, sinais de alerta e cuidados do dia a dia (higiene íntima, prevenção de infecções, sexualidade,
+              bem-estar e uso seguro de medicamentos).
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card interactive" data-accordion>
+          <button class="card-head" type="button">
+            <div class="flex items-center gap-3">
+              <div class="badgeIcon">⚖️</div>
+              <div>
+                <div class="card-title">Base legal e fontes oficiais</div>
+                <div class="card-sub">MS • Anvisa • legislação vigente</div>
+              </div>
+            </div>
+            <span class="chev">⌄</span>
+          </button>
+          <div class="card-body">
+            <p class="text-white/80 leading-relaxed">
+              O conteúdo é alinhado a <strong>diretrizes oficiais</strong> e <strong>normas brasileiras</strong>.
+              Quando há choque entre “tendências” de internet e regras locais, a Verena prioriza
+              o que é <strong>seguro, oficial e aplicável no Brasil</strong>.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="card interactive md:col-span-2" data-accordion>
+          <button class="card-head" type="button">
+            <div class="flex items-center gap-3">
+              <div class="badgeIcon">🚶</div>
+              <div>
+                <div class="card-title">Envelhecimento ativo</div>
+                <div class="card-sub">movimento • estudo • alimentação • socialização</div>
+              </div>
+            </div>
+            <span class="chev">⌄</span>
+          </button>
+          <div class="card-body">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="mini2">
+                <div class="text-xl">🚶‍♀️🚶‍♂️</div>
+                <div class="font-bold">Movimento</div>
+                <div class="text-white/70 text-sm">hábitos que protegem corpo e mente</div>
+              </div>
+              <div class="mini2">
+                <div class="text-xl">📖</div>
+                <div class="font-bold">Estudo</div>
+                <div class="text-white/70 text-sm">aprendizagem e autonomia</div>
+              </div>
+              <div class="mini2">
+                <div class="text-xl">🥗</div>
+                <div class="font-bold">Alimentação</div>
+                <div class="text-white/70 text-sm">energia, metabolismo e bem-estar</div>
+              </div>
+              <div class="mini2">
+                <div class="text-xl">💬</div>
+                <div class="font-bold">Convivência</div>
+                <div class="text-white/70 text-sm">apoio social e saúde emocional</div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Rodapé / avisos -->
+    <section id="rodape" class="mx-auto max-w-6xl px-4 pb-16">
+      <div class="card p-6">
+        <h3 class="text-xl font-extrabold text-white">Aviso importante</h3>
+        <p class="mt-2 text-white/80 leading-relaxed">
+          A Verena tem caráter <strong>educativo</strong> e não substitui consulta com profissionais de saúde
+          ou do direito. Em caso de urgência, procure atendimento imediato.
+        </p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="pill">🔒 Privacidade e LGPD</span>
+          <span class="pill">✅ Segurança e responsabilidade</span>
+          <span class="pill">📌 Conteúdo contextualizado ao Brasil</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="relative z-10 py-10">
+    <div class="mx-auto max-w-6xl px-4 text-sm text-white/60">
+      <div class="flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
+        <span>© <span id="year"></span> Verena</span>
+        <span>Site estático (GitHub Pages)</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/app.js"></script>
+</body>
 </html>

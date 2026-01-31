@@ -1,0 +1,158 @@
+/* Fundo */
+.bg-wrap{
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(1200px 600px at 20% 10%, rgba(236,72,153,.20), transparent 60%),
+              radial-gradient(900px 500px at 80% 30%, rgba(99,102,241,.18), transparent 60%),
+              radial-gradient(900px 700px at 50% 90%, rgba(13,148,136,.18), transparent 60%),
+              linear-gradient(135deg, #0b1220, #0b1220);
+  z-index: 0;
+}
+.bg-glow{
+  position:absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 999px;
+  filter: blur(40px);
+  opacity: .35;
+}
+.bg-glow-1{ left:-120px; top:-120px; background: #ec4899; }
+.bg-glow-2{ right:-140px; top:160px; background: #6366f1; }
+
+.bg-grid{
+  position:absolute;
+  inset:0;
+  opacity:.18;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(circle at 50% 20%, black 0%, transparent 70%);
+}
+
+/* Componentes */
+.navlink{
+  display:inline-flex;
+  padding:10px 12px;
+  border-radius: 12px;
+  color: rgba(255,255,255,.78);
+  font-weight: 600;
+  font-size: 14px;
+}
+.navlink:hover{ background: rgba(255,255,255,.08); color: #fff; }
+
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  padding:10px 14px;
+  border-radius: 14px;
+  color:#fff;
+  font-weight: 800;
+  background: linear-gradient(135deg, rgba(236,72,153,.95), rgba(14,165,233,.85));
+  box-shadow: 0 16px 40px rgba(236,72,153,.18);
+  border: 1px solid rgba(255,255,255,.18);
+}
+.btn-primary:hover{ transform: translateY(-1px); }
+
+.btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  padding:10px 14px;
+  border-radius: 14px;
+  color: rgba(255,255,255,.85);
+  font-weight: 800;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+}
+.btn-secondary:hover{ background: rgba(255,255,255,.10); color:#fff; }
+
+.btn-icon{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  color: rgba(255,255,255,.85);
+  font-weight: 900;
+}
+.btn-icon:hover{ background: rgba(255,255,255,.10); color:#fff; }
+
+.card{
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 22px;
+  box-shadow: 0 22px 70px rgba(0,0,0,.25);
+  backdrop-filter: blur(10px);
+}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(255,255,255,.78);
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.mini{
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+}
+.mini-emoji{ font-size: 22px; }
+.mini-title{ font-weight: 900; color: #fff; margin-top: 6px; }
+.mini-sub{ font-size: 12px; color: rgba(255,255,255,.68); margin-top: 2px; }
+
+.mini2{
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+/* Accordion cards */
+.interactive .card-head{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding: 18px 18px;
+  border-radius: 22px;
+  text-align:left;
+}
+.badgeIcon{
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.14);
+  font-size: 20px;
+}
+.card-title{ font-weight: 900; color:#fff; }
+.card-sub{ font-size: 12px; color: rgba(255,255,255,.68); margin-top: 2px; }
+.chev{ opacity:.8; font-size: 18px; transition: transform .2s ease; }
+
+.interactive .card-body{
+  max-height: 0;
+  overflow:hidden;
+  padding: 0 18px;
+  transition: max-height .25s ease, padding .25s ease;
+}
+.interactive[data-open="true"] .card-body{
+  max-height: 420px;
+  padding: 0 18px 18px;
+}
+.interactive[data-open="true"] .chev{ transform: rotate(180deg); }
