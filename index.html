@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Verena — Saúde Reprodutiva • Educação • Legislação</title>
+  <title>Verena — Saúde Reprodutiva • Envelhecimento • Direitos</title>
 
   <!-- Tailwind via CDN (prático p/ GitHub Pages) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -28,17 +28,16 @@
   <header class="relative z-10">
     <nav class="mx-auto max-w-6xl px-4 py-5 flex items-center justify-between">
       <a href="./index.html" class="flex items-center gap-3 group">
-        <!-- Troque depois por seu logo em assets/img/logo -->
         <div class="w-11 h-11 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center shadow-lg">
-          <span class="text-2xl"><img 
-  src="./assets/img/logo/verena-logo.png"
-  alt="Logo Verena"
-  class="w-11 h-11 object-contain"
-/></span>
+          <img
+            src="./assets/img/logo/verena-logo.png"
+            alt="Logo Verena"
+            class="w-9 h-9 object-contain"
+          />
         </div>
         <div class="leading-tight">
           <div class="font-extrabold tracking-tight text-white text-lg group-hover:opacity-90">VERENA</div>
-          <div class="text-xs text-white/70 -mt-0.5">saúde reprodutiva • envelhecimento ativo</div>
+          <div class="text-xs text-white/70 -mt-0.5">saúde reprodutiva • envelhecimento ativo • direitos</div>
         </div>
       </a>
 
@@ -49,9 +48,7 @@
         <a class="btn-primary" href="#cards">Explorar</a>
       </div>
 
-      <button id="menuBtn" class="md:hidden btn-icon" aria-label="Abrir menu">
-        ☰
-      </button>
+      <button id="menuBtn" class="md:hidden btn-icon" aria-label="Abrir menu">☰</button>
     </nav>
 
     <!-- Menu mobile -->
@@ -67,45 +64,55 @@
 
   <!-- Hero -->
   <main class="relative z-10">
-    <section class="mx-auto max-w-6xl px-4 pt-8 pb-10">
-<!-- Banner principal -->
-<section class="mx-auto max-w-6xl px-4 pt-6">
-  <div class="relative overflow-hidden rounded-3xl shadow-2xl border border-white/10">
-    <img
-      src="./assets/img/banners/idosos-ativos.png"
-      alt="Idosos ativos, saúde reprodutiva e envelhecimento saudável"
-      class="w-full h-[320px] md:h-[420px] object-cover"
-    />
 
-    <!-- Overlay com texto -->
-    <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent flex items-center">
-      <div class="p-6 md:p-10 max-w-xl">
-        <h2 class="text-2xl md:text-4xl font-extrabold text-white">
-          Saúde reprodutiva como base do envelhecimento saudável
-        </h2>
-        <p class="mt-3 text-white/80 text-sm md:text-base leading-relaxed">
-          Educação, ciência e legislação integradas para promover autonomia,
-          bem-estar e envelhecimento ativo.
-        </p>
+    <!-- Banner principal -->
+    <section class="mx-auto max-w-6xl px-4 pt-6">
+      <div class="relative overflow-hidden rounded-3xl shadow-2xl border border-white/10">
+        <img
+          src="./assets/img/banners/idosos-ativos.png"
+          alt="Idosos ativos, saúde reprodutiva e envelhecimento saudável"
+          class="w-full h-[320px] md:h-[420px] object-cover"
+        />
+
+        <!-- Overlay com texto -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-transparent flex items-center">
+          <div class="p-6 md:p-10 max-w-xl">
+            <h2 class="text-2xl md:text-4xl font-extrabold text-white">
+              Saúde reprodutiva como eixo integrador do envelhecimento saudável
+            </h2>
+            <p class="mt-3 text-white/85 text-sm md:text-base leading-relaxed">
+              Educação, ciência e direitos da pessoa idosa reunidos de forma acessível para apoiar autonomia,
+              bem-estar, prevenção e envelhecimento ativo.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-4 pt-8 pb-10">
       <div class="grid lg:grid-cols-2 gap-8 items-center">
         <div>
           <div class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/10 border border-white/15">
-            <span>🔬</span>
-            <span>Base científica + diretrizes oficiais + linguagem acessível</span>
+            <span>🧩</span>
+            <span>Visão sistêmica do idoso • linguagem clara • foco no Brasil</span>
           </div>
 
           <h1 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight text-white">
-            Saúde reprodutiva como <span class="text-white/80">eixo central</span> para entender o corpo inteiro
+            Ampla e integrada — e ao mesmo tempo
+            <span class="text-white/80">especialista na saúde da pessoa idosa</span>
           </h1>
 
           <p class="mt-4 text-white/80 leading-relaxed">
-            A Verena organiza informações educativas sobre <strong>saúde reprodutiva no envelhecimento</strong>
-            e suas conexões com outros sistemas (cérebro, coração, ossos, metabolismo e imunidade),
-            alinhando conteúdo com <strong>Ministério da Saúde, Anvisa</strong> e <strong>legislação brasileira</strong>.
+            A Verena parte da <strong>saúde reprodutiva no envelhecimento</strong> (mudanças hormonais e neuroendócrinas)
+            como <strong>eixo integrador</strong> e, a partir daí, conecta os impactos em múltiplos sistemas:
+            <strong>neurológico, cardiovascular, ósseo/muscular, metabólico e imunológico</strong>,
+            além de fatores <strong>emocionais e sociais</strong>.
+          </p>
+
+          <p class="mt-3 text-white/75 leading-relaxed">
+            Essa abordagem torna a Verena <strong>ampla</strong> (corpo inteiro) e, ao mesmo tempo,
+            <strong>especialista</strong> (funcionalidade, autonomia, prevenção e dignidade no cuidado ao idoso),
+            com conteúdo contextualizado ao Brasil.
           </p>
 
           <div class="mt-6 flex flex-col sm:flex-row gap-3">
@@ -114,15 +121,11 @@
           </div>
 
           <div class="mt-6 flex flex-wrap gap-2">
-            <span class="pill"><img 
-  src="./assets/img/logo/verena-logo.png"
-  alt="Logo Verena"
-  class="w-11 h-11 object-contain"
-/> Saúde Reprodutiva</span>
+            <span class="pill">♀️ Saúde Reprodutiva</span>
             <span class="pill">🧠 Sistemas integrados</span>
-            <span class="pill">📚 Educação</span>
-            <span class="pill">⚖️ Leis e direitos</span>
-            <span class="pill">🚶 Envelhecimento ativo</span>
+            <span class="pill">🏥 SUS & Diretrizes</span>
+            <span class="pill">⚖️ Estatuto da Pessoa Idosa</span>
+            <span class="pill">🧪 Boas práticas (ANVISA)</span>
           </div>
         </div>
 
@@ -131,11 +134,11 @@
           <div class="flex items-center justify-between gap-3">
             <div class="flex items-center gap-3">
               <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500/90 to-rose-600/90 flex items-center justify-center shadow-xl">
-                <span class="text-2xl"><img 
-  src="./assets/img/logo/verena-logo.png"
-  alt="Logo Verena"
-  class="w-11 h-11 object-contain"
-/></span>
+                <img
+                  src="./assets/img/logo/verena-logo.png"
+                  alt="Logo Verena"
+                  class="w-9 h-9 object-contain"
+                />
               </div>
               <div>
                 <div class="font-bold text-white">Verena</div>
@@ -149,27 +152,27 @@
             <div class="mini">
               <div class="mini-emoji">♀️</div>
               <div class="mini-title">Feminino</div>
-              <div class="mini-sub">ciclos • menopausa • bem-estar</div>
+              <div class="mini-sub">menopausa • bem-estar • prevenção</div>
             </div>
             <div class="mini">
               <div class="mini-emoji">♂️</div>
               <div class="mini-title">Masculino</div>
-              <div class="mini-sub">declínio androgênico • saúde global</div>
+              <div class="mini-sub">andropausa • saúde global</div>
             </div>
             <div class="mini">
               <div class="mini-emoji">🔗</div>
               <div class="mini-title">Integração</div>
-              <div class="mini-sub">impactos em múltiplos sistemas</div>
+              <div class="mini-sub">mente • corpo • contexto</div>
             </div>
             <div class="mini">
               <div class="mini-emoji">⚖️</div>
-              <div class="mini-title">Legal</div>
-              <div class="mini-sub">orientação conforme normas</div>
+              <div class="mini-title">Direitos</div>
+              <div class="mini-sub">dignidade • prioridade • respeito</div>
             </div>
           </div>
 
           <div class="mt-5 text-xs text-white/60 leading-relaxed">
-            * Conteúdo educativo. Não substitui atendimento profissional.
+            * Conteúdo educativo e informativo. Não substitui consulta, diagnóstico, prescrição ou conduta profissional.
           </div>
         </div>
       </div>
@@ -180,34 +183,37 @@
       <div class="flex items-end justify-between gap-4 mb-6">
         <div>
           <h2 class="text-2xl md:text-3xl font-extrabold text-white">Cards interativos (clique para abrir)</h2>
-          <p class="text-white/70 mt-1">As informações ficam “ocultas” e aparecem ao tocar/clicar.</p>
+          <p class="text-white/70 mt-1">As informações aparecem ao tocar/clicar — ideais para leitura rápida.</p>
         </div>
         <button id="expandAll" class="btn-secondary hidden sm:inline-flex">Abrir tudo</button>
       </div>
 
       <div class="grid md:grid-cols-2 gap-4">
+
         <!-- Card 1 -->
         <article class="card interactive" data-accordion>
           <button class="card-head" type="button">
             <div class="flex items-center gap-3">
-              <div class="badgeIcon"><img 
-  src="./assets/img/logo/verena-logo.png"
-  alt="Logo Verena"
-  class="w-11 h-11 object-contain"
-/></div>
+              <div class="badgeIcon">
+                <img src="./assets/img/logo/verena-logo.png" alt="Logo Verena" class="w-8 h-8 object-contain" />
+              </div>
               <div>
                 <div class="card-title">Eixo central: Saúde Reprodutiva</div>
-                <div class="card-sub">Por que ela é o “ponto de partida”</div>
+                <div class="card-sub">por que ela é o “ponto de partida”</div>
               </div>
             </div>
             <span class="chev">⌄</span>
           </button>
           <div class="card-body">
             <p class="text-white/80 leading-relaxed">
-              A saúde reprodutiva no envelhecimento funciona como um <strong>centro regulador</strong> porque
-              envolve mudanças hormonais e neuroendócrinas que repercutem no corpo todo.
-              Por isso, a Verena parte desse eixo para explicar temas de outros sistemas de forma integrada.
+              No envelhecimento, as mudanças <strong>hormonais e neuroendócrinas</strong> influenciam sono, humor,
+              memória, energia, metabolismo, ossos e risco cardiovascular.
+              Por isso, a saúde reprodutiva funciona como um <strong>eixo integrador</strong> para explicar o corpo inteiro
+              de forma clara e organizada.
             </p>
+            <div class="mt-3 text-white/70 text-sm">
+              ✅ Ampla (sistêmica) • ✅ contextualizada ao idoso • ✅ com foco em autonomia e funcionalidade
+            </div>
           </div>
         </article>
 
@@ -225,12 +231,16 @@
           </button>
           <div class="card-body">
             <ul class="list-disc pl-5 space-y-2 text-white/80">
-              <li><strong>Neuro:</strong> humor, memória, sono e bem-estar.</li>
-              <li><strong>Cardio:</strong> risco cardiovascular e saúde endotelial.</li>
-              <li><strong>Ósseo/muscular:</strong> osteoporose, sarcopenia e autonomia.</li>
-              <li><strong>Metabólico:</strong> gordura corporal, glicemia e energia.</li>
-              <li><strong>Imunidade:</strong> inflamação crônica e resposta a infecções.</li>
+              <li><strong>Neuro:</strong> humor, memória, sono, dor crônica e bem-estar.</li>
+              <li><strong>Cardio:</strong> risco cardiovascular, pressão, saúde endotelial.</li>
+              <li><strong>Ósseo/muscular:</strong> osteoporose, sarcopenia, quedas, autonomia.</li>
+              <li><strong>Metabólico:</strong> glicemia, gordura corporal, energia, apetite.</li>
+              <li><strong>Imunidade:</strong> inflamação crônica, resposta a infecções e vacina.</li>
             </ul>
+            <p class="mt-3 text-white/75 text-sm leading-relaxed">
+              A ideia é evitar “informação fragmentada” e ajudar o cuidador/idoso a enxergar relações entre sintomas,
+              hábitos e prevenção.
+            </p>
           </div>
         </article>
 
@@ -241,49 +251,144 @@
               <div class="badgeIcon">📚</div>
               <div>
                 <div class="card-title">Educação em saúde</div>
-                <div class="card-sub">linguagem clara + foco em autocuidado</div>
+                <div class="card-sub">linguagem clara + foco em autocuidado seguro</div>
               </div>
             </div>
             <span class="chev">⌄</span>
           </button>
           <div class="card-body">
             <p class="text-white/80 leading-relaxed">
-              A Verena foi pensada para <strong>explicar sem “mediquês”</strong>, ajudando o usuário a entender
-              exames, sinais de alerta e cuidados do dia a dia (higiene íntima, prevenção de infecções, sexualidade,
-              bem-estar e uso seguro de medicamentos).
+              A Verena explica <strong>sem “mediquês”</strong> e sem sensacionalismo, ajudando a compreender:
+              exames, sinais de alerta, prevenção de infecções, sexualidade no envelhecimento, higiene íntima,
+              bem-estar e uso seguro de medicamentos.
+            </p>
+            <div class="mt-3 text-white/70 text-sm">
+              📌 Sem prescrição • sem prometer cura • sem incentivar automedicação
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 (Ministério da Saúde / SUS / PNSPI) -->
+        <article class="card interactive" data-accordion>
+          <button class="card-head" type="button">
+            <div class="flex items-center gap-3">
+              <div class="badgeIcon">🏥</div>
+              <div>
+                <div class="card-title">Diretrizes do Ministério da Saúde (SUS)</div>
+                <div class="card-sub">cuidado integral • funcionalidade • APS</div>
+              </div>
+            </div>
+            <span class="chev">⌄</span>
+          </button>
+          <div class="card-body">
+            <p class="text-white/80 leading-relaxed">
+              As diretrizes do SUS para saúde da pessoa idosa reforçam que o cuidado deve ser
+              <strong>integral</strong> (biológico, psicológico e social), com foco em <strong>autonomia</strong>,
+              <strong>funcionalidade</strong>, prevenção e apoio a cuidadores/família.
+            </p>
+
+            <ul class="mt-3 list-disc pl-5 space-y-2 text-white/80">
+              <li><strong>Envelhecimento ativo:</strong> estímulo a movimento, participação social e saúde mental.</li>
+              <li><strong>Atenção Primária (APS):</strong> acompanhamento contínuo e coordenação do cuidado.</li>
+              <li><strong>Risco e prevenção:</strong> quedas, fragilidade, polifarmácia e perda funcional.</li>
+              <li><strong>Cuidado centrado na pessoa:</strong> respeito, preferências e decisão compartilhada.</li>
+            </ul>
+
+            <p class="mt-3 text-white/75 text-sm leading-relaxed">
+              📌 A Verena aplica esses princípios em linguagem acessível — para apoiar decisões mais seguras,
+              sem substituir profissionais.
             </p>
           </div>
         </article>
 
-        <!-- Card 4 -->
+        <!-- Card 5 (ANVISA) -->
         <article class="card interactive" data-accordion>
+          <button class="card-head" type="button">
+            <div class="flex items-center gap-3">
+              <div class="badgeIcon">🧪</div>
+              <div>
+                <div class="card-title">Boas práticas e segurança (ANVISA)</div>
+                <div class="card-sub">informação responsável • prevenção de danos</div>
+              </div>
+            </div>
+            <span class="chev">⌄</span>
+          </button>
+          <div class="card-body">
+            <p class="text-white/80 leading-relaxed">
+              A Verena segue uma lógica de <strong>informação responsável</strong>: prioriza segurança, clareza,
+              e evita práticas que possam causar dano — especialmente em idosos (risco de quedas, interações medicamentosas,
+              automedicação e desinformação).
+            </p>
+
+            <ul class="mt-3 list-disc pl-5 space-y-2 text-white/80">
+              <li>Não incentiva <strong>autoprescrição</strong> ou mudanças sem orientação profissional.</li>
+              <li>Explicita limites: conteúdo <strong>educativo/informativo</strong>.</li>
+              <li>Valoriza linguagem clara e orientações de <strong>prevenção</strong>.</li>
+            </ul>
+
+            <p class="mt-3 text-white/75 text-sm leading-relaxed">
+              ⚠️ Observação: citar “ANVISA” aqui é referência a boas práticas de segurança e comunicação — não é endosso oficial.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 6 (Estatuto) -->
+        <article class="card interactive md:col-span-2" data-accordion>
           <button class="card-head" type="button">
             <div class="flex items-center gap-3">
               <div class="badgeIcon">⚖️</div>
               <div>
-                <div class="card-title">Base legal e fontes oficiais</div>
-                <div class="card-sub">MS • Anvisa • legislação vigente</div>
+                <div class="card-title">Estatuto da Pessoa Idosa (Lei nº 10.741/2003)</div>
+                <div class="card-sub">dignidade • prioridade • proteção • direito à saúde</div>
               </div>
             </div>
             <span class="chev">⌄</span>
           </button>
           <div class="card-body">
             <p class="text-white/80 leading-relaxed">
-              O conteúdo é alinhado a <strong>diretrizes oficiais</strong> e <strong>normas brasileiras</strong>.
-              Quando há choque entre “tendências” de internet e regras locais, a Verena prioriza
-              o que é <strong>seguro, oficial e aplicável no Brasil</strong>.
+              O Estatuto reforça que a pessoa idosa é <strong>sujeito de direitos</strong> e deve ser tratada com
+              <strong>dignidade</strong>, <strong>respeito</strong> e sem discriminação. Também assegura prioridade
+              e proteção contra negligência, violência e abuso.
+            </p>
+
+            <div class="mt-4 grid sm:grid-cols-2 gap-3">
+              <div class="mini2">
+                <div class="text-xl">🧑‍⚖️</div>
+                <div class="font-bold">Dignidade e respeito</div>
+                <div class="text-white/70 text-sm">sem infantilização, discriminação ou abandono</div>
+              </div>
+              <div class="mini2">
+                <div class="text-xl">🏥</div>
+                <div class="font-bold">Direito à saúde</div>
+                <div class="text-white/70 text-sm">acesso a ações e serviços de saúde</div>
+              </div>
+              <div class="mini2">
+                <div class="text-xl">⏱️</div>
+                <div class="font-bold">Prioridade</div>
+                <div class="text-white/70 text-sm">atendimento preferencial e proteção</div>
+              </div>
+              <div class="mini2">
+                <div class="text-xl">🤝</div>
+                <div class="font-bold">Dever compartilhado</div>
+                <div class="text-white/70 text-sm">família, sociedade e Estado</div>
+              </div>
+            </div>
+
+            <p class="mt-3 text-white/75 text-sm leading-relaxed">
+              📌 A Verena reforça direitos e orienta sobre caminhos de busca de ajuda quando há risco,
+              sempre em caráter educativo.
             </p>
           </div>
         </article>
 
-        <!-- Card 5 -->
+        <!-- Card 7 (Envelhecimento ativo) -->
         <article class="card interactive md:col-span-2" data-accordion>
           <button class="card-head" type="button">
             <div class="flex items-center gap-3">
               <div class="badgeIcon">🚶</div>
               <div>
                 <div class="card-title">Envelhecimento ativo</div>
-                <div class="card-sub">movimento • estudo • alimentação • socialização</div>
+                <div class="card-sub">movimento • cognição • alimentação • socialização</div>
               </div>
             </div>
             <span class="chev">⌄</span>
@@ -296,9 +401,9 @@
                 <div class="text-white/70 text-sm">hábitos que protegem corpo e mente</div>
               </div>
               <div class="mini2">
-                <div class="text-xl">📖</div>
-                <div class="font-bold">Estudo</div>
-                <div class="text-white/70 text-sm">aprendizagem e autonomia</div>
+                <div class="text-xl">🧠</div>
+                <div class="font-bold">Cognição</div>
+                <div class="text-white/70 text-sm">rotina, estímulos, sono e memória</div>
               </div>
               <div class="mini2">
                 <div class="text-xl">🥗</div>
@@ -313,6 +418,7 @@
             </div>
           </div>
         </article>
+
       </div>
     </section>
 
@@ -320,14 +426,29 @@
     <section id="rodape" class="mx-auto max-w-6xl px-4 pb-16">
       <div class="card p-6">
         <h3 class="text-xl font-extrabold text-white">Aviso importante</h3>
+
         <p class="mt-2 text-white/80 leading-relaxed">
-          A Verena tem caráter <strong>educativo</strong> e não substitui consulta com profissionais de saúde
-          ou do direito. Em caso de urgência, procure atendimento imediato.
+          A Verena tem caráter <strong>educativo e informativo</strong> e não substitui consulta,
+          diagnóstico, prescrição, exames presenciais ou condutas definidas por profissionais habilitados
+          (saúde ou direito). Em situação de urgência/emergência, procure atendimento imediato.
         </p>
-        <div class="mt-4 flex flex-wrap gap-2">
-          <span class="pill">🔒 Privacidade e LGPD</span>
-          <span class="pill">✅ Segurança e responsabilidade</span>
-          <span class="pill">📌 Conteúdo contextualizado ao Brasil</span>
+
+        <div class="mt-4 grid sm:grid-cols-3 gap-3">
+          <div class="mini2">
+            <div class="text-xl">🔒</div>
+            <div class="font-bold">Privacidade</div>
+            <div class="text-white/70 text-sm">orientação alinhada à LGPD (ver página de privacidade)</div>
+          </div>
+          <div class="mini2">
+            <div class="text-xl">✅</div>
+            <div class="font-bold">Responsabilidade</div>
+            <div class="text-white/70 text-sm">sem promessas, sem automedicação, sem alarmismo</div>
+          </div>
+          <div class="mini2">
+            <div class="text-xl">🇧🇷</div>
+            <div class="font-bold">Contexto Brasil</div>
+            <div class="text-white/70 text-sm">prioriza SUS, normas e direitos nacionais</div>
+          </div>
         </div>
       </div>
     </section>
