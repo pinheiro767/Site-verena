@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Verena — Sobre</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- IMPORTANTE: aqui sobe 1 nível (..), porque estamos dentro de /pages -->
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+
+<body class="min-h-screen font-[Inter] text-slate-100">
+  <!-- Background -->
+  <div class="bg-wrap">
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-grid"></div>
+  </div>
+
+  <!-- Header / Navbar -->
+  <header class="relative z-10">
+    <nav class="mx-auto max-w-6xl px-4 py-5 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center shadow-lg">
+          <img
+            src="../assets/img/logo/verena-logo.png"
+            alt="Logo Verena"
+            class="w-9 h-9 object-contain"
+          />
+        </div>
+        <div class="leading-tight">
+          <div class="font-extrabold tracking-tight text-white text-lg group-hover:opacity-90">VERENA</div>
+          <div class="text-xs text-white/70 -mt-0.5">sobre • propósito • base</div>
+        </div>
+      </a>
+
+      <div class="hidden md:flex items-center gap-2">
+        <a class="navlink" href="../index.html#cards">Explorar</a>
+        <a class="navlink" href="./sobre.html">Sobre</a>
+        <a class="navlink" href="./bases.html">Bases</a>
+        <a class="navlink" href="./privacidade.html">Privacidade</a>
+        <a class="btn-primary" href="../index.html">Início</a>
+      </div>
+
+      <button id="menuBtn" class="md:hidden btn-icon" aria-label="Abrir menu">☰</button>
+    </nav>
+
+    <!-- Menu mobile -->
+    <div id="mobileMenu" class="md:hidden hidden mx-auto max-w-6xl px-4 pb-4">
+      <div class="card p-3 flex flex-col gap-2">
+        <a class="navlink" href="../index.html#cards">Explorar</a>
+        <a class="navlink" href="./sobre.html">Sobre</a>
+        <a class="navlink" href="./bases.html">Bases</a>
+        <a class="navlink" href="./privacidade.html">Privacidade</a>
+        <a class="btn-primary text-center" href="../index.html">Início</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <!-- Hero -->
+    <section class="mx-auto max-w-6xl px-4 pt-8 pb-10">
+      <div class="card p-6 md:p-8">
+        <div class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/10 border border-white/15">
+          <span>🧠</span>
+          <span>Verena vai além: cuidador + pessoa idosa + visão integrada</span>
+        </div>
+
+        <h1 class="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+          Sobre a Verena
+        </h1>
+
+        <p class="mt-3 text-white/80 leading-relaxed">
+          A <strong>Verena</strong> é uma ferramenta digital educativa para apoiar o cuidado integral da pessoa idosa
+          com respeito, dignidade e linguagem clara. Ela também apoia <strong>cuidadores e familiares</strong>,
+          ajudando a compreender sinais, prevenção e direitos — sempre em caráter informativo.
+        </p>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="pill">♀️♂️ Saúde reprodutiva (eixo)</span>
+          <span class="pill">🔗 Sistemas integrados</span>
+          <span class="pill">🏥 SUS / diretrizes</span>
+          <span class="pill">⚖️ Direitos da pessoa idosa</span>
+          <span class="pill">🤝 Apoio ao cuidador</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards (accordion) -->
+    <section class="mx-auto max-w-6xl px-4 pb-16">
+      <div class="flex items-end justify-between gap-4 mb-6">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-white">Entenda em detalhes (clique para abrir)</h2>
+          <p class="text-white/70 mt-1">Informações ocultas — aparecem ao clicar.</p>
+        </div>
+        <button id="expandAll" class="btn-secondary hidden sm:inline-flex">Abrir tudo</button>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+
+        <article class="card interactive" data-accordion>
+          <button class="card-head" type="button">
+            <div class="flex items-center gap-3">
+              <div class="badgeIcon">🧩</div>
+              <div>
+                <div class="card-title">Qual é o “coração” da Verena?</div>
+                <div class="card-sub">saúde reprodutiva como eixo integrador</div>
+              </div>
+            </div>
+            <span class="chev">⌄</span>
+          </button>
+          <div class="card-body">
+            <p class="text-white/80 leading-relaxed">
+              A Verena parte da <strong>saúde reprodutiva no envelhecimento</strong> porque mudanças hormonais e
+              neuroendócrinas se conectam com sono, humor, metabolismo, ossos, coração e imunidade.
+              Isso permite explicar o corpo de forma organizada e útil para a vida real.
+            </p>
+          </div>
+        </article>
+
+        <article class="card interactive" data-accordion>
+          <button class="card-head" type="button">
+            <div class="flex items-center gap-3">
+              <div class="badgeIcon">🔗</div>
+              <div>
+                <div class="card-title">Por que ela é ampla e especialista?</div>
+                <div class="card-sub">visão sistêmica + foco no idoso</div>
+              </div>
+            </div>
+            <span class="chev">⌄</span>
+          </button>
+          <div class="card-body">
+            <p class="text-white/80 leading-relaxed">
+              Ela é <strong>ampla</strong> porque conecta vários sistemas do corpo.
+              E é <strong>especialista</strong> porque prioriza temas críticos no envelhecimento:
+              autonomia, funcionalidade, prevenção de quedas, polifarmácia, cognição, bem-estar e dignidade.
+            </p>
+          </div>
+        </article>
+
+        <article class="card interactive" data-accordion>
+          <button class="card-head" type="button">
+            <div class="flex items-center gap-3">
+              <div class="badgeIcon">🤝</div>
+              <div>
+                <div class="card-title">Como a Verena ajuda o cuidador?</div>
+                <div class="card-sub">apoio educativo e orientação de busca de ajuda</div>
+              </div>
+            </div>
+            <span class="chev">⌄</span>
+          </button>
+          <div class="card-body">
+            <ul class="list-disc pl-5 space-y-2 text-white/80">
+              <li>Ajuda a identificar <strong>sinais de alerta</strong> (queda, confusão, piora súbita, desidratação).</li>
+              <li>Explica cuidados preventivos (rotina, hidratação, sono, segurança no lar).</li>
+              <li>Reforça limites: não prescreve, não substitui consulta.</li>
+              <li>Orienta quando é hora de procurar serviço de saúde/assistência.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card interactive" data-accordion>
+          <button class="card-head" type="button">
+            <div class="flex items-center gap-3">
+              <div class="badgeIcon">🏥</div>
+              <div>
+                <div class="card-title">Alinhamento com diretrizes do SUS</div>
+                <div class="card-sub">cuidado integral e centrado na pessoa</div>
+              </div>
+            </div>
+            <span class="chev">⌄</span>
+          </button>
+          <div class="card-body">
+            <p class="text-white/80 leading-relaxed">
+              A Verena segue a lógica do cuidado <strong>integral</strong>, com foco em autonomia, funcionalidade
+              e apoio a cuidadores. Valoriza acompanhamento contínuo e prevenção, sem fragmentar o corpo
+              em “assuntos isolados”.
+            </p>
+          </div>
+        </article>
+
+        <article class="card interactive md:col-span-2" data-accordion>
+          <button class="card-head" type="button">
+            <div class="flex items-center gap-3">
+              <div class="badgeIcon">⚖️</div>
+              <div>
+                <div class="card-title">Direitos e dignidade da pessoa idosa</div>
+                <div class="card-sub">sem infantilização • sujeito de direitos</div>
+              </div>
+            </div>
+            <span class="chev">⌄</span>
+          </button>
+          <div class="card-body">
+            <p class="text-white/80 leading-relaxed">
+              A Verena evita termos e abordagens infantilizantes. A pessoa idosa é tratada como
+              <strong>sujeito de direitos</strong>, com dignidade e prioridade, conforme o
+              <strong>Estatuto da Pessoa Idosa (Lei 10.741/2003)</strong>.
+            </p>
+            <p class="mt-3 text-white/75 text-sm leading-relaxed">
+              Também reforça que o cuidado é um dever compartilhado entre família, sociedade e Estado.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Aviso -->
+    <section class="mx-auto max-w-6xl px-4 pb-16">
+      <div class="card p-6">
+        <h3 class="text-xl font-extrabold text-white">Aviso importante</h3>
+        <p class="mt-2 text-white/80 leading-relaxed">
+          Conteúdo educativo e informativo. Não substitui consulta, diagnóstico, prescrição ou conduta profissional.
+          Em situação de urgência/emergência, procure atendimento imediato.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="relative z-10 py-10">
+    <div class="mx-auto max-w-6xl px-4 text-sm text-white/60">
+      <div class="flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
+        <span>© <span id="year"></span> Verena</span>
+        <span>Site estático (GitHub Pages)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- IMPORTANTE: aqui também sobe 1 nível -->
+  <script src="../assets/js/app.js"></script>
+</body>
+          </html>
