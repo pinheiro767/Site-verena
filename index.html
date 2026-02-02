@@ -14,6 +14,99 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./assets/css/styles.css" />
+
+  <!-- ✅ Estilos do Chatbot (2º código) -->
+  <style>
+    .chatbot-container{
+      position:fixed; bottom:30px; right:30px; z-index:1000;
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+    .chat-button{
+      width:70px; height:70px; border-radius:9999px;
+      background:linear-gradient(135deg,#f472b6 0%,#a78bfa 100%);
+      border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+      font-size:2rem; box-shadow:0 8px 30px rgba(244,114,182,.30);
+      transition:all .25s ease; animation:pulse 2s infinite;
+    }
+    .chat-button:hover{ transform:scale(1.08); box-shadow:0 12px 40px rgba(244,114,182,.45); }
+    @keyframes pulse{
+      0%,100%{ box-shadow:0 8px 30px rgba(244,114,182,.30); }
+      50%{ box-shadow:0 8px 42px rgba(244,114,182,.55); }
+    }
+
+    .chat-window{
+      position:absolute; bottom:90px; right:0;
+      width:380px; max-height:600px;
+      background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);
+      border:1px solid rgba(244,114,182,.30);
+      border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,.50);
+      display:none; flex-direction:column; overflow:hidden;
+      animation:slideUp .35s ease-out;
+    }
+    .chat-window.active{ display:flex; }
+    @keyframes slideUp{ from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:translateY(0);} }
+
+    .chat-header{
+      background:linear-gradient(135deg,#f472b6 0%,#a78bfa 100%);
+      padding:18px 18px; color:#fff; display:flex; justify-content:space-between; align-items:center;
+    }
+    .chat-header h3{ margin:0; font-size:1.05rem; font-weight:800; letter-spacing:-.02em; }
+    .close-btn{ background:none; border:none; color:#fff; cursor:pointer; font-size:1.4rem; transition:transform .2s; }
+    .close-btn:hover{ transform:rotate(90deg); }
+
+    .chat-content{
+      flex:1; overflow-y:auto; padding:16px 16px;
+      display:flex; flex-direction:column; gap:14px;
+    }
+    .message{ animation:fadeIn .25s ease-out; }
+    @keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
+
+    .bot-message{
+      background:rgba(244,114,182,.15);
+      border-left:3px solid #f472b6;
+      padding:12px 14px; border-radius:12px;
+      color:#e8e8e8; font-size:.95rem; line-height:1.5;
+    }
+    .badge{
+      display:inline-block; background:rgba(244,114,182,.20); color:#f472b6;
+      padding:2px 8px; border-radius:9999px; font-size:.75rem; font-weight:700; margin-bottom:8px;
+    }
+
+    .rights-grid{ display:grid; grid-template-columns:1fr; gap:8px; margin-top:8px; }
+    .right-item{
+      background:rgba(255,255,255,.06);
+      padding:8px 12px; border-radius:10px; font-size:.9rem;
+      border-left:2px solid #a78bfa;
+    }
+
+    .chat-actions{
+      padding:14px 16px;
+      border-top:1px solid rgba(255,255,255,.12);
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .action-btn{
+      padding:12px 14px; border:none; border-radius:12px;
+      cursor:pointer; font-weight:800; font-size:.95rem;
+      transition:all .25s ease;
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+    .download-btn{
+      background:linear-gradient(135deg,#f472b6 0%,#a78bfa 100%);
+      color:#fff;
+    }
+    .download-btn:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(244,114,182,.28); }
+    .more-btn{
+      background:rgba(255,255,255,.10);
+      color:#e8e8e8;
+      border:1px solid rgba(244,114,182,.30);
+    }
+    .more-btn:hover{ background:rgba(244,114,182,.14); border-color:rgba(244,114,182,.60); }
+
+    @media (max-width:480px){
+      .chat-window{ width:calc(100vw - 40px); }
+      .chatbot-container{ bottom:20px; right:20px; }
+    }
+  </style>
 </head>
 
 <body class="min-h-screen font-[Inter] text-slate-100">
@@ -43,7 +136,10 @@
 
       <div class="hidden md:flex items-center gap-2">
         <a class="navlink" href="./pages/sobre.html">Sobre</a>
-        <a class="navlink" href="./pages/bases.html">Bases</a>
+
+        <!-- ✅ Agora "Bases" desce para a seção nesta mesma página -->
+        <a class="navlink" href="#bases">Bases</a>
+
         <a class="navlink" href="./pages/privacidade.html">Privacidade</a>
         <a class="btn-primary" href="#cards">Explorar</a>
       </div>
@@ -55,7 +151,7 @@
     <div id="mobileMenu" class="md:hidden hidden mx-auto max-w-6xl px-4 pb-4">
       <div class="card p-3 flex flex-col gap-2">
         <a class="navlink" href="./pages/sobre.html">Sobre</a>
-        <a class="navlink" href="./pages/bases.html">Bases</a>
+        <a class="navlink" href="#bases">Bases</a>
         <a class="navlink" href="./pages/privacidade.html">Privacidade</a>
         <a class="btn-primary text-center" href="#cards">Explorar</a>
       </div>
@@ -77,7 +173,6 @@
         <!-- Overlay com texto -->
         <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-transparent flex items-center">
           <div class="p-6 md:p-10 max-w-xl">
-            <!-- ✅ BLOCO ATUALIZADO -->
             <h2 class="text-2xl md:text-4xl font-extrabold text-white">
               Regulação Neuroendócrina: O eixo integrador do envelhecimento
             </h2>
@@ -196,7 +291,6 @@
 
       <div class="grid md:grid-cols-2 gap-4">
 
-        <!-- ✅ NOVO Card (Cerne Biológico: Eixo Neuroendócrino) -->
         <article class="card interactive" data-accordion>
           <button class="card-head" type="button">
             <div class="flex items-center gap-3">
@@ -218,7 +312,6 @@
           </div>
         </article>
 
-        <!-- Card 1 -->
         <article class="card interactive" data-accordion>
           <button class="card-head" type="button">
             <div class="flex items-center gap-3">
@@ -245,7 +338,6 @@
           </div>
         </article>
 
-        <!-- Card 2 -->
         <article class="card interactive" data-accordion>
           <button class="card-head" type="button">
             <div class="flex items-center gap-3">
@@ -272,7 +364,6 @@
           </div>
         </article>
 
-        <!-- Card 3 -->
         <article class="card interactive" data-accordion>
           <button class="card-head" type="button">
             <div class="flex items-center gap-3">
@@ -296,7 +387,6 @@
           </div>
         </article>
 
-        <!-- Card 4 (Ministério da Saúde / SUS / PNSPI) -->
         <article class="card interactive" data-accordion>
           <button class="card-head" type="button">
             <div class="flex items-center gap-3">
@@ -329,7 +419,6 @@
           </div>
         </article>
 
-        <!-- Card 5 (ANVISA) -->
         <article class="card interactive" data-accordion>
           <button class="card-head" type="button">
             <div class="flex items-center gap-3">
@@ -360,7 +449,6 @@
           </div>
         </article>
 
-        <!-- Card 6 (Estatuto) -->
         <article class="card interactive md:col-span-2" data-accordion>
           <button class="card-head" type="button">
             <div class="flex items-center gap-3">
@@ -409,7 +497,6 @@
           </div>
         </article>
 
-        <!-- ✅ NOVO Card (Iniciação Científica e Pesquisa) -->
         <article class="card interactive md:col-span-2 border-dashed border-teal-500/50" data-accordion>
           <button class="card-head" type="button">
             <div class="flex items-center gap-3">
@@ -434,7 +521,6 @@
           </div>
         </article>
 
-        <!-- Card 7 (Envelhecimento ativo) -->
         <article class="card interactive md:col-span-2" data-accordion>
           <button class="card-head" type="button">
             <div class="flex items-center gap-3">
@@ -472,6 +558,78 @@
           </div>
         </article>
 
+      </div>
+    </section>
+
+    <!-- ✅ BASES DO PROJETO (seção nova que o menu "Bases" abre) -->
+    <section id="bases" class="mx-auto max-w-6xl px-4 pb-16 scroll-mt-24">
+      <div class="flex items-end justify-between gap-4 mb-6">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-white">Bases do Projeto</h2>
+          <p class="text-white/70 mt-1">Biologia sistêmica • neurociências • direito • saúde reprodutiva como eixo integrador.</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4 lg:gap-6">
+        <article class="card p-6 md:p-8">
+          <div class="flex items-start gap-4 mb-5">
+            <div class="w-14 h-14 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-3xl">🧬</div>
+            <div>
+              <h3 class="font-extrabold text-white text-xl">Eixo Neuroendócrino</h3>
+              <div class="text-xs font-semibold text-white/60 mt-1">Modulação Sistêmica</div>
+            </div>
+          </div>
+          <div class="text-white/75 leading-relaxed space-y-3">
+            <p>A saúde reprodutiva atua como modulador da homeostase sistêmica pelo eixo hipotálamo-hipófise-gonadal.</p>
+            <p>Regula neuroplasticidade, metabolismo ósseo e saúde cardiovascular — com reflexos em marcadores e sintomas.</p>
+            <p>Seu declínio impacta humor, sono e cognição, organizando a abordagem integrativa da Verena.</p>
+          </div>
+        </article>
+
+        <article class="card p-6 md:p-8">
+          <div class="flex items-start gap-4 mb-5">
+            <div class="w-14 h-14 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-3xl">📚</div>
+            <div>
+              <h3 class="font-extrabold text-white text-xl">Evidências e Pesquisa</h3>
+              <div class="text-xs font-semibold text-white/60 mt-1">PubMed 2021–2026</div>
+            </div>
+          </div>
+          <div class="text-white/75 leading-relaxed space-y-3">
+            <p>Integra revisões recentes sobre suporte social/familiar e prevenção do declínio cognitivo.</p>
+            <p>Autonomia e estímulo cognitivo ajudam a reduzir isolamento e padrões de sonolência excessiva.</p>
+            <p>Conteúdo educativo ancorado em evidências e comunicação responsável.</p>
+          </div>
+        </article>
+
+        <article class="card p-6 md:p-8">
+          <div class="flex items-start gap-4 mb-5">
+            <div class="w-14 h-14 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-3xl">⚖️</div>
+            <div>
+              <h3 class="font-extrabold text-white text-xl">Direitos e Dignidade</h3>
+              <div class="text-xs font-semibold text-white/60 mt-1">Estatuto da Pessoa Idosa</div>
+            </div>
+          </div>
+          <div class="text-white/75 leading-relaxed space-y-3">
+            <p>Baseado no Estatuto da Pessoa Idosa (Lei nº 10.741/2003) e no princípio da dignidade humana.</p>
+            <p>Combate infantilização e reforça autonomia, autodeterminação e respeito.</p>
+            <p>Direitos como eixo ético do cuidado e da informação.</p>
+          </div>
+        </article>
+
+        <article class="card p-6 md:p-8">
+          <div class="flex items-start gap-4 mb-5">
+            <div class="w-14 h-14 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-3xl">🔬</div>
+            <div>
+              <h3 class="font-extrabold text-white text-xl">Iniciação Científica</h3>
+              <div class="text-xs font-semibold text-white/60 mt-1">Formação Acadêmica</div>
+            </div>
+          </div>
+          <div class="text-white/75 leading-relaxed space-y-3">
+            <p>Pesquisa aplicada conectando estudantes e mentores, com foco em envelhecimento saudável e saúde integral.</p>
+            <p>Produção de conhecimento com rigor, ética e responsabilidade social.</p>
+            <p>Formação de pesquisadores comprometidos com excelência científica.</p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -516,6 +674,93 @@
     </div>
   </footer>
 
+  <!-- ✅ CHATBOT FLUTUANTE -->
+  <div class="chatbot-container">
+    <button class="chat-button" id="chatToggle" title="Abrir chat">💬</button>
+
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">
+        <h3>Direitos da Pessoa Idosa</h3>
+        <button class="close-btn" id="closeChat">✕</button>
+      </div>
+
+      <div class="chat-content" id="chatContent">
+        <div class="message bot-message">
+          <span class="badge">👋 Bem-vindo</span>
+          <p>Sabia que a pessoa idosa tem direitos garantidos por lei? Conheça os princípios fundamentais:</p>
+        </div>
+
+        <div class="message bot-message">
+          <div class="rights-grid">
+            <div class="right-item">✓ <strong>Dignidade</strong> - Respeito e consideração</div>
+            <div class="right-item">✓ <strong>Autonomia</strong> - Liberdade de decisão</div>
+            <div class="right-item">✓ <strong>Integração</strong> - Participação social</div>
+            <div class="right-item">✓ <strong>Saúde</strong> - Acesso integral</div>
+            <div class="right-item">✓ <strong>Proteção</strong> - Contra violência e abandono</div>
+          </div>
+        </div>
+
+        <div class="message bot-message">
+          <p>Conforme o <strong>Estatuto da Pessoa Idosa (Lei 10.741/2003)</strong>, estas garantias fundamentam nossa abordagem na Verena.</p>
+        </div>
+      </div>
+
+      <div class="chat-actions">
+        <button class="action-btn download-btn" id="downloadBtn">📲 Baixar App Verena</button>
+        <button class="action-btn more-btn" id="moreBtn">📖 Saiba Mais</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seu JS principal -->
   <script src="./assets/js/app.js"></script>
+
+  <!-- ✅ JS do chatbot (não mexe em caminhos) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const chatToggle = document.getElementById('chatToggle');
+      const chatWindow = document.getElementById('chatWindow');
+      const closeChat = document.getElementById('closeChat');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const moreBtn = document.getElementById('moreBtn');
+
+      if (!chatToggle || !chatWindow || !closeChat || !downloadBtn || !moreBtn) return;
+
+      chatToggle.addEventListener('click', () => {
+        chatWindow.classList.toggle('active');
+      });
+
+      closeChat.addEventListener('click', () => {
+        chatWindow.classList.remove('active');
+      });
+
+      downloadBtn.addEventListener('click', () => {
+        alert('🎉 Redirecionando para a loja de apps...\n\nEm breve você poderá baixar o app Verena!');
+      });
+
+      moreBtn.addEventListener('click', () => {
+        const chatContent = document.getElementById('chatContent');
+        if (!chatContent) return;
+
+        const additionalMessage = document.createElement('div');
+        additionalMessage.className = 'message bot-message';
+        additionalMessage.innerHTML = `
+          <p><strong>Sobre a Verena:</strong></p>
+          <p>Nossa plataforma integra biologia sistêmica, neurociências e direito para oferecer um cuidado integral e humanizado.</p>
+          <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 8px;">
+            Baseado em pesquisas atualizadas (PubMed 2021–2026) com foco na saúde reprodutiva como eixo central do envelhecimento saudável.
+          </p>
+        `;
+
+        chatContent.appendChild(additionalMessage);
+        chatContent.scrollTop = chatContent.scrollHeight;
+        moreBtn.textContent = '✓ Informações Adicionadas';
+        moreBtn.disabled = true;
+      });
+
+      // opcional: abrir sozinho após 3s
+      setTimeout(() => chatWindow.classList.add('active'), 3000);
+    });
+  </script>
 </body>
 </html>
